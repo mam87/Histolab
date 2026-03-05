@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Histopathology & Cytology Lab | مختبر الهيستوباثولوجي والسيتولوجي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#06070c;--surface:#0b0f18;--card:#0f1520;--card2:#121b28;
+  --amber:#e8a020;--amber2:#f5c840;--amber3:#ffd96a;
+  --teal:#1a9e8f;--teal2:#22c5b3;
+  --rose:#c0392b;--rose2:#e74c3c;
+  --violet:#7c4dff;--violet2:#a57dff;
+  --text:#ede8df;--muted:#7080a0;--muted2:#5a6880;
+  --border:#1a2840;--border2:#223050;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Tajawal','Cairo',sans-serif;direction:rtl;overflow-x:hidden;transition:direction .3s}
+body.en{direction:ltr;font-family:'Source Serif 4','Tajawal',sans-serif}
+
+/* ── GRAIN + AMBIENCE ── */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5}
+.amb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+.amb1{width:700px;height:500px;background:rgba(232,160,32,.045);top:-100px;right:-200px}
+.amb2{width:600px;height:600px;background:rgba(26,158,143,.035);bottom:-150px;left:-150px}
+.dot-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(232,160,32,.05) 1px,transparent 1px);background-size:48px 48px}
+
+/* ══ LANGUAGE TOGGLE ══ */
+.lang-fab{position:fixed;bottom:1.6rem;left:1.6rem;z-index:500;display:flex;gap:.5rem}
+body.en .lang-fab{left:auto;right:1.6rem}
+.lang-btn{width:52px;height:52px;border-radius:50%;border:2px solid var(--border2);background:rgba(10,15,25,.92);backdrop-filter:blur(12px);cursor:pointer;font-size:.75rem;font-weight:800;transition:all .25s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;line-height:1}
+.lang-btn.active-lang{border-color:var(--amber);background:rgba(232,160,32,.12);color:var(--amber2);box-shadow:0 0 18px rgba(232,160,32,.3)}
+.lang-btn:not(.active-lang){color:var(--muted)}
+.lang-btn:hover{transform:scale(1.08)}
+.lang-flag{font-size:1.1rem}
+.lang-code{font-size:.6rem;letter-spacing:1px;font-family:'Tajawal',sans-serif}
+
+/* ══════ HEADER ══════ */
+header{position:sticky;top:0;z-index:100;background:rgba(6,7,12,.96);border-bottom:1px solid var(--border2);backdrop-filter:blur(22px)}
+.hdr-top{max-width:1200px;margin:0 auto;padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.9rem}
+.logo-mark{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--amber),var(--rose));display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 0 28px rgba(232,160,32,.35);flex-shrink:0;animation:logoPulse 4s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 28px rgba(232,160,32,.35)}50%{box-shadow:0 0 52px rgba(232,160,32,.6)}}
+.logo-text .l1{font-family:'Cairo','Playfair Display',sans-serif;font-size:1.15rem;font-weight:900;background:linear-gradient(90deg,var(--amber),var(--amber2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.logo-text .l2{font-size:.68rem;color:var(--muted);margin-top:.1rem;display:block}
+.hdr-right{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.hbtn{display:flex;align-items:center;gap:.35rem;padding:.42rem 1rem;border-radius:30px;font-family:inherit;font-size:.76rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .22s}
+.hbtn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+.hbtn-wa:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,211,102,.35)}
+.hbtn-tg{background:linear-gradient(135deg,#2ca5e0,#1a7db5);color:#fff}
+.hbtn-tg:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(44,165,224,.35)}
+
+/* NAV */
+nav{background:rgba(9,12,20,.85);border-top:1px solid var(--border)}
+.nav-scroll{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-scroll::-webkit-scrollbar{display:none}
+nav a{color:var(--muted);text-decoration:none;padding:.78rem 1rem;font-size:.8rem;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;transition:all .22s;cursor:pointer}
+nav a:hover,nav a.active{color:var(--amber);border-bottom-color:var(--amber)}
+
+/* ══════ HERO ══════ */
+.hero{position:relative;z-index:5;padding:5rem 1.5rem 4rem;text-align:center;overflow:hidden}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,160,32,.07);border:1px solid rgba(232,160,32,.22);padding:.4rem 1.2rem;border-radius:20px;font-size:.77rem;color:var(--amber2);margin-bottom:1.8rem;animation:fadeUp .7s ease both}
+.hero h2{font-family:'Cairo','Playfair Display',sans-serif;font-size:clamp(1.85rem,5vw,3.2rem);font-weight:900;line-height:1.25;margin-bottom:1rem;animation:fadeUp .7s .1s ease both}
+.hero h2 em{font-style:normal;background:linear-gradient(90deg,var(--amber),var(--amber2),var(--teal2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+body.en .hero h2{font-family:'Playfair Display','Cairo',serif}
+.hero p{color:var(--muted);font-size:.98rem;line-height:1.8;max-width:580px;margin:0 auto 2.5rem;animation:fadeUp .7s .2s ease both}
+.hstats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.hstat .n{font-size:2rem;font-weight:900;color:var(--amber);display:block;line-height:1}
+.hstat .l{font-size:.73rem;color:var(--muted);margin-top:.3rem}
+.tissue-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.tc{position:absolute;border-radius:50%;animation:tcF linear infinite}
+@keyframes tcF{0%{transform:translateY(110%) scale(.5);opacity:0}10%{opacity:.5}90%{opacity:.15}100%{transform:translateY(-110px) scale(1.3);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════ LAYOUT ══════ */
+.wrap{position:relative;z-index:5;max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem}
+.stitle{display:flex;align-items:flex-start;gap:1rem;margin-bottom:2.5rem}
+.stitle-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.stitle h3{font-family:'Cairo','Playfair Display',sans-serif;font-size:1.5rem;font-weight:900;line-height:1.2}
+body.en .stitle h3{font-family:'Playfair Display',serif;font-size:1.4rem}
+.stitle p{font-size:.81rem;color:var(--muted);margin-top:.25rem}
+hr.div{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);max-width:1200px;margin:0 auto}
+
+/* ══════ CARDS ══════ */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1.2rem}
+.ccard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.55rem;transition:all .3s;position:relative;overflow:hidden}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.ccard:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.55)}
+.ccard:hover::before{opacity:1}
+.ccard.amber::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.ccard.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.ccard.rose::before{background:linear-gradient(90deg,var(--rose),var(--rose2))}
+.ccard.violet::before{background:linear-gradient(90deg,var(--violet),var(--violet2))}
+.ccard:hover.amber{border-color:rgba(232,160,32,.4)}
+.ccard:hover.teal{border-color:rgba(26,158,143,.4)}
+.ccard:hover.rose{border-color:rgba(192,57,43,.4)}
+.ccard:hover.violet{border-color:rgba(124,77,255,.4)}
+.ci{font-size:1.9rem;margin-bottom:.9rem;display:block}
+.ccard h4{font-family:'Cairo',sans-serif;font-size:.98rem;font-weight:700;margin-bottom:.5rem}
+body.en .ccard h4{font-family:'Source Serif 4',serif;font-size:.92rem}
+.ccard p,.ccard ul{font-size:.81rem;color:var(--muted);line-height:1.75}
+.ccard ul{list-style:none;margin-top:.55rem}
+.ccard ul li{padding:.27rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.45rem}
+.ccard ul li::before{content:'▸';color:var(--amber);font-size:.55rem;margin-top:.38rem;flex-shrink:0}
+.pill{display:inline-block;padding:.16rem .6rem;border-radius:18px;font-size:.68rem;font-weight:700;margin-top:.7rem}
+.pa{background:rgba(232,160,32,.1);color:var(--amber2);border:1px solid rgba(232,160,32,.25)}
+.pt{background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.28)}
+.pr{background:rgba(192,57,43,.1);color:var(--rose2);border:1px solid rgba(192,57,43,.28)}
+.pv{background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.28)}
+
+/* ══════ TABLE ══════ */
+.tbl-w{overflow-x:auto;border-radius:14px;border:1px solid var(--border2)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead{background:rgba(232,160,32,.07)}
+thead th{padding:.9rem 1rem;text-align:right;font-weight:700;color:var(--amber2);border-bottom:1px solid var(--border2);white-space:nowrap}
+body.en thead th{text-align:left}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.03);transition:background .18s}
+tbody tr:hover{background:rgba(232,160,32,.04)}
+tbody td{padding:.78rem 1rem;color:var(--text);line-height:1.5;vertical-align:top}
+td em{font-style:normal;color:var(--muted);font-size:.76rem;display:block}
+
+/* ══════ STEPS ══════ */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:680px){.steps{grid-template-columns:1fr}}
+.sg h4{color:var(--amber);font-size:.92rem;font-weight:700;margin-bottom:.9rem}
+.sl{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.snum{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--amber),rgba(232,160,32,.35));border:1px solid var(--amber);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.82rem;flex-shrink:0;box-shadow:0 0 10px rgba(232,160,32,.2)}
+.sc h5{font-size:.87rem;font-weight:700;color:var(--amber2);margin-bottom:.28rem}
+.sc p{font-size:.79rem;color:var(--muted);line-height:1.7}
+
+/* ══════ SAFETY ══════ */
+.sbox{background:linear-gradient(135deg,rgba(192,57,43,.07),rgba(192,57,43,.02));border:1px solid rgba(192,57,43,.2);border-radius:18px;padding:2rem}
+.shdr{display:flex;align-items:center;gap:.9rem;margin-bottom:1.8rem}
+.shdr .ale{background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.32);padding:.65rem;border-radius:10px;font-size:1.35rem}
+.shdr h4{color:#e57373;font-size:1rem;font-weight:700}
+.shdr p{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+.sgr{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.95rem}
+.si2{background:rgba(6,7,12,.55);border:1px solid rgba(192,57,43,.14);border-radius:12px;padding:1.05rem;transition:all .24s}
+.si2:hover{border-color:rgba(192,57,43,.38);transform:translateY(-2px)}
+.si2 .ico{font-size:1.3rem;margin-bottom:.45rem;display:block}
+.si2 h5{font-size:.85rem;font-weight:700;color:#e57373;margin-bottom:.35rem}
+.si2 p{font-size:.77rem;color:var(--muted);line-height:1.65}
+.clbox{margin-top:1.8rem;background:rgba(26,158,143,.07);border:1px solid rgba(26,158,143,.2);border-radius:13px;padding:1.5rem}
+.clbox h4{color:var(--teal2);font-size:.92rem;font-weight:700;margin-bottom:1rem}
+.clg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.45rem}
+.clg label{display:flex;align-items:center;gap:.55rem;font-size:.8rem;cursor:pointer}
+.clg input{accent-color:var(--teal2);width:14px;height:14px;flex-shrink:0}
+
+/* ══════ STAINS ══════ */
+.stain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1rem}
+.stain-c{background:var(--card2);border:1px solid var(--border);border-radius:13px;padding:1.35rem;transition:all .28s}
+.stain-c:hover{border-color:var(--amber);transform:translateY(-3px);box-shadow:0 8px 26px rgba(0,0,0,.45)}
+.sn{font-family:'Cairo',sans-serif;font-size:.98rem;font-weight:700;color:var(--amber2);margin-bottom:.22rem}
+.sen{font-size:.73rem;color:var(--muted);margin-bottom:.65rem}
+.su{font-size:.8rem;color:var(--text);line-height:1.65;margin-bottom:.6rem}
+.sw{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.5rem}
+.swc{width:15px;height:15px;border-radius:50%;border:1px solid rgba(255,255,255,.18);flex-shrink:0}
+
+/* ══════ REFS ══════ */
+.rl{display:flex;flex-direction:column;gap:.65rem}
+.ri{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.15rem;display:flex;align-items:flex-start;gap:.85rem;transition:all .22s}
+.ri:hover{border-color:var(--amber);transform:translateX(-3px)}
+body.en .ri:hover{transform:translateX(3px)}
+.rn{background:rgba(232,160,32,.09);border:1px solid rgba(232,160,32,.22);color:var(--amber2);font-weight:800;font-size:.72rem;padding:.16rem .52rem;border-radius:7px;flex-shrink:0;margin-top:.2rem}
+.rb{font-size:.81rem;line-height:1.65;color:var(--text)}
+.rb a{color:var(--teal2);text-decoration:none}
+.rb a:hover{text-decoration:underline}
+.rtag{display:inline-block;padding:.12rem .48rem;border-radius:6px;font-size:.67rem;font-weight:700;margin-top:.28rem}
+
+/* ══════ NEWS ══════ */
+.nzone{position:relative;z-index:5;background:linear-gradient(180deg,var(--bg),#040509);border-top:2px solid var(--border2);padding:3.5rem 0 4rem}
+.nzone::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(232,160,32,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(232,160,32,.018) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.ninner{position:relative;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.nbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border2)}
+.nbl{display:flex;align-items:center;gap:.8rem}
+.nbico{width:44px;height:44px;background:linear-gradient(135deg,var(--amber),var(--amber2));border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;box-shadow:0 0 16px rgba(232,160,32,.28)}
+.nbl h3{font-family:'Cairo','Playfair Display',sans-serif;font-size:1.3rem;font-weight:900;background:linear-gradient(90deg,var(--amber),var(--amber2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+body.en .nbl h3{font-family:'Playfair Display',serif}
+.nbl p{font-size:.7rem;color:var(--muted)}
+.nbr{display:flex;align-items:center;gap:.65rem}
+.nlive{display:flex;align-items:center;gap:.32rem;background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.18);padding:.28rem .82rem;border-radius:28px;font-size:.73rem;color:var(--amber)}
+.ndot{width:6px;height:6px;border-radius:50%;background:var(--amber2);box-shadow:0 0 5px var(--amber2);animation:nd 2s infinite}
+@keyframes nd{0%,100%{opacity:1}50%{opacity:.3}}
+.nrbtn{background:rgba(232,160,32,.09);border:1px solid var(--amber);color:var(--amber);padding:.36rem .95rem;border-radius:28px;font-family:inherit;font-size:.76rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.32rem;transition:all .2s}
+.nrbtn:hover{background:rgba(232,160,32,.2);box-shadow:0 0 16px rgba(232,160,32,.18)}
+.nrbtn:disabled{opacity:.5;cursor:not-allowed}
+.ntimer{display:flex;align-items:center;gap:.65rem;background:rgba(10,14,22,.85);border:1px solid var(--border);border-radius:9px;padding:.42rem .88rem;margin-bottom:1.35rem}
+.ntl{font-size:.69rem;color:var(--muted);white-space:nowrap}
+.ntr{flex:1;height:2px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+.ntf{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber2));transition:width 1s linear}
+.ntn{font-size:.73rem;color:var(--amber);font-weight:700;min-width:20px;text-align:center}
+.nupd{font-size:.67rem;color:var(--muted)}
+@keyframes nsp{to{transform:rotate(360deg)}}
+.nsp{animation:nsp .65s linear infinite;display:inline-block}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1rem}
+.ncard{background:#0c1420;border:1px solid #192840;border-radius:13px;padding:1.15rem;transition:all .24s;animation:nfi .38s ease both}
+.ncard:hover{border-color:rgba(232,160,32,.32);transform:translateY(-3px);box-shadow:0 8px 26px rgba(0,0,0,.5)}
+@keyframes nfi{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+.nbadge{display:inline-block;font-size:.65rem;font-weight:700;padding:.14rem .58rem;border-radius:18px;margin-bottom:.65rem;letter-spacing:.4px}
+.nbr{background:rgba(232,160,32,.1);color:var(--amber2);border:1px solid rgba(232,160,32,.26)}
+.nbt{background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.26)}
+.nbd{background:rgba(192,57,43,.1);color:#e57373;border:1px solid rgba(192,57,43,.26)}
+.nbh{background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.26)}
+.nct{font-size:.9rem;font-weight:700;line-height:1.5;color:#edf2f8;margin-bottom:.5rem}
+.ncb{font-size:.78rem;color:#607890;line-height:1.75;margin-bottom:.75rem}
+.ncf{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #192840;padding-top:.58rem;font-size:.69rem;color:#405060}
+.ncs{display:flex;align-items:center;gap:.28rem}
+.ncd{width:5px;height:5px;border-radius:50%;background:var(--amber2)}
+
+/* ══════ FOOTER ══════ */
+footer{position:relative;z-index:5;background:rgba(4,5,8,.99);border-top:1px solid var(--border2);padding:2.8rem 1.5rem 1.5rem}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1.8rem;max-width:1200px;margin:0 auto 1.8rem}
+.fc h4{color:var(--amber2);font-size:.87rem;font-weight:700;margin-bottom:.85rem;padding-bottom:.45rem;border-bottom:1px solid var(--border)}
+.fc p,.fc a{font-size:.78rem;color:var(--muted);line-height:1.85;display:block;text-decoration:none}
+.fc a:hover{color:var(--amber2)}
+.fbot{border-top:1px solid var(--border);padding-top:1.1rem;text-align:center;font-size:.73rem;color:var(--muted);max-width:1200px;margin:0 auto}
+
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--amber);border-radius:10px}
+@media(max-width:600px){.hero{padding:3rem 1rem 2.5rem}.wrap{padding:2.5rem 1rem}.hstats{gap:1.5rem}.steps{grid-template-columns:1fr}}
+
+/* EN-specific overrides */
+body.en .ccard ul li::before{content:'▶'}
+body.en .ri:hover{transform:translateX(3px)}
+</style>
+</head>
+<body>
+<div class="amb amb1"></div>
+<div class="amb amb2"></div>
+<div class="dot-grid"></div>
+
+<!-- ══════ LANGUAGE TOGGLE ══════ -->
+<div class="lang-fab">
+  <button class="lang-btn active-lang" id="arBtn" onclick="setLang('ar')">
+    <span class="lang-flag">🇯🇴</span><span class="lang-code">AR</span>
+  </button>
+  <button class="lang-btn" id="enBtn" onclick="setLang('en')">
+    <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+  </button>
+</div>
+
+<!-- ══════ HEADER ══════ -->
+<header>
+  <div class="hdr-top">
+    <div class="logo">
+      <div class="logo-mark">🔬</div>
+      <div class="logo-text">
+        <span class="l1" data-ar="الهيستوباثولوجي والسيتولوجي" data-en="Histopathology & Cytology">الهيستوباثولوجي والسيتولوجي</span>
+        <span class="l2" data-ar="أخصائي المختبرات مأمون السعودي | Mamoun Al-Saudi" data-en="Medical Laboratory Specialist | Mamoun Al-Saudi">أخصائي المختبرات مأمون السعودي</span>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <a href="https://wa.me/962799146795" target="_blank" class="hbtn hbtn-wa">💬 <span data-ar="واتساب" data-en="WhatsApp">واتساب</span></a>
+      <a href="https://t.me/alshamelmls" target="_blank" class="hbtn hbtn-tg">📡 <span data-ar="مكتبة طب مخبري" data-en="Lab Medicine Library">مكتبة طب مخبري</span></a>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-scroll">
+      <a href="#intro" class="active" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a href="#basics" data-ar="الأساسيات" data-en="Basics">الأساسيات</a>
+      <a href="#histo" data-ar="الهيستوباثولوجي" data-en="Histopathology">الهيستوباثولوجي</a>
+      <a href="#cyto" data-ar="السيتولوجي" data-en="Cytology">السيتولوجي</a>
+      <a href="#stains" data-ar="الصبغات" data-en="Stains">الصبغات</a>
+      <a href="#protocol" data-ar="البروتوكولات" data-en="Protocols">البروتوكولات</a>
+      <a href="#safety" data-ar="السلامة" data-en="Safety">السلامة</a>
+      <a href="#references" data-ar="المراجع" data-en="References">المراجع</a>
+      <a href="#news" style="color:var(--amber)" data-ar="🌐 أخبار" data-en="🌐 News">🌐 أخبار</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ══════ HERO ══════ -->
+<div id="intro" class="hero">
+  <div class="tissue-bg" id="tissBg"></div>
+  <div class="hero-eyebrow" data-ar="🧫 علم الأنسجة المرضية وعلم الخلايا" data-en="🧫 Histopathology & Cytopathology Science">🧫 علم الأنسجة المرضية وعلم الخلايا</div>
+  <h2 data-ar="دليل الفني الشامل في<br/><em>الهيستوباثولوجي والسيتولوجي</em>" data-en="The Complete Technician's Guide to<br/><em>Histopathology & Cytology</em>">دليل الفني الشامل في<br/><em>الهيستوباثولوجي والسيتولوجي</em></h2>
+  <p data-ar="مرجع علمي متكامل يغطي تقنيات معالجة الأنسجة، تحضير الشرائح، الصبغات التشخيصية، والفحص الخلوي للكوادر المخبرية المتخصصة" data-en="A comprehensive scientific reference covering tissue processing techniques, slide preparation, diagnostic stains, and cytological examination for specialized laboratory staff">مرجع علمي متكامل يغطي تقنيات معالجة الأنسجة، تحضير الشرائح، الصبغات التشخيصية، والفحص الخلوي للكوادر المخبرية المتخصصة</p>
+  <div class="hstats">
+    <div class="hstat"><span class="n">12+</span><span class="l" data-ar="تقنية تشخيصية" data-en="Diagnostic Techniques">تقنية تشخيصية</span></div>
+    <div class="hstat"><span class="n">20+</span><span class="l" data-ar="صبغة نسيجية" data-en="Histological Stains">صبغة نسيجية</span></div>
+    <div class="hstat"><span class="n">18+</span><span class="l" data-ar="إجراء سلامة" data-en="Safety Procedures">إجراء سلامة</span></div>
+    <div class="hstat"><span class="n">25+</span><span class="l" data-ar="مرجع علمي" data-en="Scientific References">مرجع علمي</span></div>
+  </div>
+</div>
+
+<!-- ══════ BASICS ══════ -->
+<div class="wrap" id="basics">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.22);">🏛️</div>
+    <div>
+      <h3 data-ar="الأساسيات والمفاهيم الجوهرية" data-en="Core Concepts & Fundamentals">الأساسيات والمفاهيم الجوهرية</h3>
+      <p data-ar="التعريفات والمبادئ الأساسية لفهم المختبر النسيجي والخلوي" data-en="Definitions and principles essential to understanding the histology and cytology laboratory">التعريفات والمبادئ الأساسية لفهم المختبر النسيجي والخلوي</p>
+    </div>
+  </div>
+  <div class="cgrid">
+    <div class="ccard amber">
+      <span class="ci">🔬</span>
+      <h4 data-ar="الهيستوباثولوجي — تعريف وأهمية" data-en="Histopathology — Definition & Importance">الهيستوباثولوجي — تعريف وأهمية</h4>
+      <p data-ar="علم دراسة التغيرات المرضية في الأنسجة تحت المجهر. يُعدّ الركيزة الذهبية في تشخيص الأورام والأمراض." data-en="The microscopic study of diseased tissue changes. Considered the Gold Standard for diagnosing tumours and organ diseases.">علم دراسة التغيرات المرضية في الأنسجة تحت المجهر. يُعدّ الركيزة الذهبية في تشخيص الأورام والأمراض.</p>
+      <ul>
+        <li data-ar="تشخيص الأورام الحميدة والخبيثة وتصنيفها" data-en="Diagnosis and classification of benign and malignant tumours">تشخيص الأورام الحميدة والخبيثة وتصنيفها</li>
+        <li data-ar="تقييم هوامش استئصال الأورام (Surgical margins)" data-en="Assessment of tumour resection margins">تقييم هوامش استئصال الأورام</li>
+        <li data-ar="دراسة أمراض الأعضاء (كبد، كلية، جلد)" data-en="Study of organ diseases (liver, kidney, skin)">دراسة أمراض الأعضاء (كبد، كلية، جلد)</li>
+        <li data-ar="تحديد درجة الخباثة (Grading) والانتشار (Staging)" data-en="Tumour grading and staging">تحديد درجة الخباثة والانتشار</li>
+      </ul>
+    </div>
+    <div class="ccard teal">
+      <span class="ci">🧬</span>
+      <h4 data-ar="السيتولوجي — تعريف وتطبيقات" data-en="Cytology — Definition & Applications">السيتولوجي — تعريف وتطبيقات</h4>
+      <p data-ar="علم دراسة الخلايا المفردة للكشف عن التغيرات المرضية. أقل تدخلاً من الخزعة وسريع النتائج." data-en="The study of individual cells to detect pathological changes. Less invasive than biopsy with rapid results.">علم دراسة الخلايا المفردة للكشف عن التغيرات المرضية. أقل تدخلاً من الخزعة وسريع النتائج.</p>
+      <ul>
+        <li data-ar="مسحة عنق الرحم (Pap smear)" data-en="Cervical smear (Pap test)">مسحة عنق الرحم (Pap smear)</li>
+        <li data-ar="الخزعة بالإبرة الدقيقة (FNAC/FNA)" data-en="Fine needle aspiration cytology (FNAC/FNA)">الخزعة بالإبرة الدقيقة (FNAC)</li>
+        <li data-ar="فحص البلغم وسوائل الجسم" data-en="Sputum and body fluid examination">فحص البلغم وسوائل الجسم</li>
+        <li data-ar="السيتولوجي السائل (Liquid-based cytology)" data-en="Liquid-based cytology (LBC)">السيتولوجي السائل (LBC)</li>
+      </ul>
+    </div>
+    <div class="ccard rose">
+      <span class="ci">⚗️</span>
+      <h4 data-ar="مراحل معالجة الأنسجة" data-en="Tissue Processing Stages">مراحل معالجة الأنسجة</h4>
+      <p data-ar="سلسلة العمليات من وصول العينة حتى شريحة الفحص:" data-en="The chain of processes from specimen receipt to microscope slide:">سلسلة العمليات من وصول العينة حتى شريحة الفحص:</p>
+      <ul>
+        <li data-ar="التثبيت (Fixation) — 10% Neutral Buffered Formalin" data-en="Fixation — 10% Neutral Buffered Formalin">التثبيت — 10% Neutral Buffered Formalin</li>
+        <li data-ar="التقطيع الإجمالي (Grossing) وأخذ الكاسات" data-en="Macroscopic examination (Grossing) and sampling">التقطيع الإجمالي وأخذ الكاسات</li>
+        <li data-ar="المعالجة النسيجية الآلية (Tissue processing)" data-en="Automated tissue processing">المعالجة النسيجية الآلية</li>
+        <li data-ar="التضمين في الشمع (Paraffin embedding)" data-en="Paraffin wax embedding">التضمين في الشمع</li>
+        <li data-ar="التقطيع بالميكروتوم (3-5 µm)" data-en="Microtomy sectioning (3–5 µm)">التقطيع بالميكروتوم</li>
+        <li data-ar="الصبغ والتغطية (Staining & Mounting)" data-en="Staining and coverslipping">الصبغ والتغطية</li>
+      </ul>
+    </div>
+    <div class="ccard violet">
+      <span class="ci">📊</span>
+      <h4 data-ar="الفرق بين الهيستو والسيتو" data-en="Histopathology vs Cytology">الفرق بين الهيستو والسيتو</h4>
+      <ul>
+        <li data-ar="العينة: نسيج كامل ← هيستو | خلايا منفردة ← سيتو" data-en="Sample: whole tissue ← Histo | single cells ← Cyto">العينة: نسيج كامل ← هيستو | خلايا منفردة ← سيتو</li>
+        <li data-ar="التشخيص: بنية نسيجية ← هيستو | مورفولوجيا خلوية ← سيتو" data-en="Diagnosis: tissue architecture ← Histo | cell morphology ← Cyto">التشخيص: بنية نسيجية ← هيستو | مورفولوجيا ← سيتو</li>
+        <li data-ar="الإجراء: خزعة جراحية ← هيستو | إبرة/مسحة ← سيتو" data-en="Procedure: surgical biopsy ← Histo | needle/smear ← Cyto">الإجراء: خزعة جراحية ← هيستو | إبرة/مسحة ← سيتو</li>
+        <li data-ar="الوقت: أيام ← هيستو | ساعات ← سيتو" data-en="Turnaround: days ← Histo | hours ← Cyto">الوقت: أيام ← هيستو | ساعات ← سيتو</li>
+      </ul>
+    </div>
+    <div class="ccard amber">
+      <span class="ci">🏥</span>
+      <h4 data-ar="أنواع العينات الواردة" data-en="Types of Received Specimens">أنواع العينات الواردة</h4>
+      <ul>
+        <li data-ar="خزعة (Biopsy): قطعة نسيج جراحية" data-en="Biopsy: surgical tissue fragment">خزعة (Biopsy): قطعة نسيج جراحية</li>
+        <li data-ar="استئصال (Resection): عضو أو جزء كامل" data-en="Resection: whole organ or partial">استئصال (Resection): عضو أو جزء كامل</li>
+        <li data-ar="خزعة بالإبرة (Core needle): ثدي، كلية، كبد" data-en="Core needle biopsy: breast, kidney, liver">خزعة بالإبرة: ثدي، كلية، كبد</li>
+        <li data-ar="FNAC: غدة درقية، ليمفاوية، أورام سطحية" data-en="FNAC: thyroid, lymph node, surface lumps">FNAC: غدة درقية، ليمفاوية</li>
+        <li data-ar="سوائل الجسم: بول، بلغم، غسيل شعبي (BAL)" data-en="Body fluids: urine, sputum, BAL">سوائل الجسم: بول، بلغم، BAL</li>
+      </ul>
+    </div>
+    <div class="ccard teal">
+      <span class="ci">🎯</span>
+      <h4 data-ar="جودة العينة — المعايير الأساسية" data-en="Specimen Quality — Key Standards">جودة العينة — المعايير الأساسية</h4>
+      <ul>
+        <li data-ar="تثبيت سريع < 1 ساعة من الاستئصال" data-en="Fixation within 1 hour of excision">تثبيت سريع &lt;1 ساعة من الاستئصال</li>
+        <li data-ar="نسبة الفورمالين: 10× حجم العينة" data-en="Formalin ratio: 10× the specimen volume">نسبة الفورمالين: 10× حجم العينة</li>
+        <li data-ar="تسمية صحيحة وكاملة لكل حاوية" data-en="Correct and complete labelling on every container">تسمية صحيحة وكاملة لكل حاوية</li>
+        <li data-ar="معلومات سريرية مفصلة على طلب الفحص" data-en="Detailed clinical information on request form">معلومات سريرية مفصلة على طلب الفحص</li>
+        <li data-ar="فصل العينات من مواقع مختلفة بحاويات منفصلة" data-en="Separate containers for different anatomical sites">فصل العينات المختلفة في حاويات منفصلة</li>
+      </ul>
+      <span class="pill pt" data-ar="✅ جودة أولية" data-en="✅ Pre-analytical Quality">✅ جودة أولية</span>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- ══════ HISTOPATHOLOGY ══════ -->
+<div class="wrap" id="histo">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.22);">🫀</div>
+    <div>
+      <h3 data-ar="الهيستوباثولوجي التفصيلي" data-en="Histopathology — Detailed Guide">الهيستوباثولوجي التفصيلي</h3>
+      <p data-ar="خطوات معالجة الأنسجة وبروتوكولات معيارية معتمدة" data-en="Tissue processing steps and approved standard protocols">خطوات معالجة الأنسجة وبروتوكولات معيارية معتمدة</p>
+    </div>
+  </div>
+  <div class="tbl-w" style="margin-bottom:2rem">
+    <table>
+      <thead>
+        <tr>
+          <th data-ar="المرحلة" data-en="Stage">المرحلة</th>
+          <th data-ar="المادة / الجهاز" data-en="Reagent / Equipment">المادة / الجهاز</th>
+          <th data-ar="الوقت / الظروف" data-en="Time / Conditions">الوقت / الظروف</th>
+          <th data-ar="الهدف" data-en="Purpose">الهدف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong data-ar="1. التثبيت" data-en="1. Fixation">1. التثبيت</strong><em data-ar="Fixation" data-en="Fixation">Fixation</em></td>
+          <td data-ar="10% Neutral Buffered Formalin" data-en="10% Neutral Buffered Formalin">10% Neutral Buffered Formalin</td>
+          <td data-ar="6–48 ساعة (حسب حجم العينة)" data-en="6–48 hours (depending on specimen size)">6–48 ساعة</td>
+          <td data-ar="إيقاف التحلل الخلوي، الحفاظ على البنية المورفولوجية" data-en="Halt autolysis and preserve tissue morphology">إيقاف التحلل الخلوي</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="2. التقطيع الإجمالي" data-en="2. Grossing">2. التقطيع الإجمالي</strong><em>Grossing / Macroscopic</em></td>
+          <td data-ar="مشرط، لوح قطع، مسطرة" data-en="Scalpel, cutting board, ruler">مشرط، لوح قطع، مسطرة</td>
+          <td data-ar="يدوي — بخبرة" data-en="Manual — requires expertise">يدوي — بخبرة</td>
+          <td data-ar="اختيار المناطق التمثيلية ووصف العينة الكلي" data-en="Select representative areas and macroscopic description">اختيار المناطق التمثيلية</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="3. المعالجة النسيجية" data-en="3. Tissue Processing">3. المعالجة النسيجية</strong><em>Tissue Processor</em></td>
+          <td data-ar="جهاز المعالجة الآلي" data-en="Automated tissue processor">جهاز المعالجة الآلي</td>
+          <td data-ar="12–14 ساعة (ليلية)" data-en="12–14 hours (overnight cycle)">12–14 ساعة ليلية</td>
+          <td data-ar="إزالة الماء، إحلال الشمع" data-en="Dehydration, clearing, wax infiltration">إزالة الماء وإحلال الشمع</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="4. التضمين" data-en="4. Embedding">4. التضمين</strong><em>Paraffin Embedding</em></td>
+          <td data-ar="محطة التضمين — شمع برافين 58–60°C" data-en="Embedding station — paraffin wax 58–60°C">محطة التضمين — شمع 58–60°C</td>
+          <td data-ar="يدوي / آلي" data-en="Manual / automated">يدوي / آلي</td>
+          <td data-ar="تثبيت الأنسجة في قالب صلب للتقطيع" data-en="Fix tissue in a solid block for sectioning">تثبيت الأنسجة في قالب صلب</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="5. التقطيع" data-en="5. Microtomy">5. التقطيع</strong><em>Microtomy</em></td>
+          <td data-ar="ميكروتوم دوار — شفرة حادة" data-en="Rotary microtome — sharp blade">ميكروتوم دوار</td>
+          <td data-ar="3–5 µm سماكة" data-en="3–5 µm thickness">3–5 µm</td>
+          <td data-ar="شرائح رفيعة شفافة للفحص المجهري" data-en="Thin transparent sections for microscopy">شرائح رفيعة للمجهر</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="6. التمدد والالتصاق" data-en="6. Flotation & Mounting">6. التمدد والالتصاق</strong><em>Flotation</em></td>
+          <td data-ar="حمام مائي 40–45°C — شرائح APES" data-en="Water bath 40–45°C — APES/poly-L-lysine slides">حمام مائي 40–45°C</td>
+          <td data-ar="فرن 60°C ساعتين" data-en="Oven 60°C for 2 hours">فرن 60°C / ساعتين</td>
+          <td data-ar="بسط الشرائح وإلصاقها على الشريحة" data-en="Flatten sections and adhere to slides">بسط الشرائح وإلصاقها</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="7. إزالة الشمع والإماهة" data-en="7. Deparaffinization">7. إزالة الشمع</strong><em>Deparaffinization</em></td>
+          <td data-ar="زيلين × 3، كحول تنازلي 100%→70%" data-en="Xylene ×3, descending alcohols 100%→70%">زيلين × 3، كحول تنازلي</td>
+          <td data-ar="2–3 دقائق لكل خطوة" data-en="2–3 minutes each step">2–3 دق / خطوة</td>
+          <td data-ar="إزالة الشمع وإعادة الأنسجة للوسط المائي" data-en="Remove wax and rehydrate tissue">إزالة الشمع وإعادة الترطيب</td>
+        </tr>
+        <tr>
+          <td><strong data-ar="8. الصبغ والتغطية" data-en="8. Staining & Coverslipping">8. الصبغ والتغطية</strong><em>Staining</em></td>
+          <td data-ar="H&E أو صبغات خاصة — DPX medium" data-en="H&E or special stains — DPX mounting medium">H&E / صبغات خاصة — DPX</td>
+          <td data-ar="حسب بروتوكول الصبغة" data-en="As per staining protocol">حسب البروتوكول</td>
+          <td data-ar="إظهار مكونات الأنسجة بألوان مميزة" data-en="Visualise tissue components with differential colours">إظهار مكونات الأنسجة</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="steps">
+    <div class="sg">
+      <h4 data-ar="⚙️ خطوات جهاز المعالجة النسيجية" data-en="⚙️ Tissue Processor Steps">⚙️ خطوات جهاز المعالجة النسيجية</h4>
+      <div class="sl">
+        <div class="step"><div class="snum">1</div><div class="sc"><h5 data-ar="التجفيف (Dehydration)" data-en="Dehydration">التجفيف</h5><p data-ar="كحول تصاعدي 70%→80%→95%→100% (×3) لإزالة الماء تدريجياً دون تشويه البنية النسيجية." data-en="Ascending alcohols 70%→80%→95%→100% (×3) to gradually remove water without distorting tissue architecture.">كحول تصاعدي 70%→100% لإزالة الماء تدريجياً دون تشويه البنية.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sc"><h5 data-ar="الإيضاح (Clearing)" data-en="Clearing">الإيضاح</h5><p data-ar="زيلين أو بدائله (Histo-clear): يزيل الكحول ويُهيئ الأنسجة لقبول الشمع ويجعلها شفافة." data-en="Xylene or substitutes (Histo-clear): removes alcohol and renders tissue transparent, ready for wax infiltration.">زيلين يزيل الكحول ويجعل الأنسجة شفافة وجاهزة للشمع.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sc"><h5 data-ar="إحلال الشمع (Infiltration)" data-en="Wax Infiltration">إحلال الشمع</h5><p data-ar="شمع برافين منصهر 60°C يتخلل الأنسجة في حجرة ضغط/تفريغ لضمان الاختراق الكامل لكل الأنسجة." data-en="Molten paraffin at 60°C infiltrates tissue in a vacuum/pressure chamber to ensure complete penetration.">شمع برافين 60°C يخترق الأنسجة في غرفة تفريغ.</p></div></div>
+        <div class="step"><div class="snum">4</div><div class="sc"><h5 data-ar="التصليب (Solidification)" data-en="Solidification">التصليب</h5><p data-ar="القوالب على لوح التبريد — الشمع يتصلب مشكلاً الكتلة (Block) الجاهزة للتقطيع بالميكروتوم." data-en="Moulds placed on cold plate — wax solidifies forming the paraffin block ready for microtomy.">القوالب على لوح التبريد لتصليب الشمع وتكوين الكتلة.</p></div></div>
+      </div>
+    </div>
+    <div class="sg">
+      <h4 data-ar="✂️ تقنيات التقطيع بالميكروتوم" data-en="✂️ Microtomy Techniques">✂️ تقنيات التقطيع بالميكروتوم</h4>
+      <div class="sl">
+        <div class="step"><div class="snum">1</div><div class="sc"><h5 data-ar="تحضير الكتلة (Trimming)" data-en="Block Trimming">تحضير الكتلة</h5><p data-ar="تقطيع أولي لكشف النسيج الكامل وإزالة الشمع الزائد. تبريد الكتلة بالثلج قبل التقطيع الدقيق." data-en="Initial cuts to expose full tissue face and remove excess wax. Cool block on ice before fine sectioning.">تقطيع أولي وتبريد الكتلة قبل الشرائح الدقيقة.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sc"><h5 data-ar="التقطيع الدقيق (Serial Sectioning)" data-en="Serial Sectioning">التقطيع الدقيق</h5><p data-ar="شرائح 3–5 µm للتشخيص الروتيني، 2–3 µm للـ IHC. الشفرة تُبدَّل بعد كل 20–25 كتلة للحفاظ على الحدة." data-en="3–5 µm for routine diagnosis, 2–3 µm for IHC. Blade changed every 20–25 blocks to maintain sharpness.">3–5 µm للروتين | 2–3 µm للـ IHC. تبديل الشفرة دورياً.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sc"><h5 data-ar="التمدد في الحمام المائي" data-en="Water Bath Flotation">التمدد في الحمام المائي</h5><p data-ar="درجة الحرارة 40–45°C (5°C أقل من نقطة انصهار الشمع). النسيج ينبسط تماماً دون تمزق أو تقلص." data-en="Temperature 40–45°C (5°C below wax melting point). Sections flatten completely without tearing or folding.">40–45°C لانبساط الشرائح دون تمزق.</p></div></div>
+        <div class="step"><div class="snum">4</div><div class="sc"><h5 data-ar="الالتصاق بالشريحة والتجفيف" data-en="Slide Adhesion & Drying">الالتصاق والتجفيف</h5><p data-ar="الشرائح المشحونة (APES أو Poly-L-lysine) تحافظ على النسيج أثناء الصبغات المكثفة والـ IHC الطويلة." data-en="Charged slides (APES or poly-L-lysine) prevent tissue detachment during intensive staining and long IHC runs.">شرائح APES تضمن التصاق النسيج أثناء الـ IHC.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- ══════ CYTOLOGY ══════ -->
+<div class="wrap" id="cyto">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(26,158,143,.1);border:1px solid rgba(26,158,143,.25);">🧫</div>
+    <div>
+      <h3 data-ar="السيتولوجي التفصيلي" data-en="Cytology — Detailed Guide">السيتولوجي التفصيلي</h3>
+      <p data-ar="تقنيات الفحص الخلوي من المسحة إلى التقرير النهائي" data-en="Cytological examination techniques from smear to final report">تقنيات الفحص الخلوي من المسحة إلى التقرير النهائي</p>
+    </div>
+  </div>
+  <div class="cgrid">
+    <div class="ccard teal">
+      <span class="ci">🩺</span>
+      <h4 data-ar="مسحة عنق الرحم — Pap Smear" data-en="Cervical Smear — Pap Smear">مسحة عنق الرحم — Pap Smear</h4>
+      <p data-ar="الفحص الذهبي للكشف المبكر عن سرطان عنق الرحم وتغيراته السابقة." data-en="The gold standard for early detection of cervical cancer and its precursor lesions.">الفحص الذهبي للكشف المبكر عن سرطان عنق الرحم.</p>
+      <ul>
+        <li data-ar="التقليدية: مسحة مباشرة على شريحة — صبغة Pap" data-en="Conventional: direct smear on glass slide — Pap stain">التقليدية: مسحة مباشرة — صبغة Pap</li>
+        <li data-ar="السائلة (LBC): ThinPrep أو SurePath" data-en="Liquid-based (LBC): ThinPrep or SurePath">السائلة (LBC): ThinPrep أو SurePath</li>
+        <li data-ar="تصنيف Bethesda 2014 للتقارير" data-en="The Bethesda System 2014 for reporting">تصنيف Bethesda 2014 للتقارير</li>
+        <li data-ar="NILM, ASC-US, LSIL, HSIL, AGC, Carcinoma" data-en="NILM, ASC-US, LSIL, HSIL, AGC, Carcinoma">NILM · ASC-US · LSIL · HSIL · AGC</li>
+      </ul>
+      <span class="pill pt" data-ar="🎗️ تشخيص سرطاني" data-en="🎗️ Cancer Screening">🎗️ تشخيص سرطاني</span>
+    </div>
+    <div class="ccard amber">
+      <span class="ci">💉</span>
+      <h4 data-ar="FNAC — الخزعة بالإبرة الدقيقة" data-en="FNAC — Fine Needle Aspiration">FNAC — الخزعة بالإبرة الدقيقة</h4>
+      <p data-ar="استخلاص خلايا من كتلة بإبرة رفيعة (23–25G) تحت توجيه الجس أو الموجات فوق الصوتية." data-en="Aspiration of cells from a mass using a fine needle (23–25G) guided by palpation or ultrasound.">استخلاص خلايا بإبرة رفيعة تحت الموجات فوق الصوتية.</p>
+      <ul>
+        <li data-ar="الغدة الدرقية، الثدي، الليمفاوية، الغدة النكفية" data-en="Thyroid, breast, lymph nodes, parotid gland">الغدة الدرقية، الثدي، الليمفاوية</li>
+        <li data-ar="تقييم أولي على الموقع (ROSE)" data-en="Rapid on-site evaluation (ROSE)">تقييم أولي على الموقع (ROSE)</li>
+        <li data-ar="مسحات، سيتوسبين، cell block" data-en="Smears, cytospin, cell block">مسحات، سيتوسبين، cell block</li>
+        <li data-ar="تصنيف Bethesda للغدة الدرقية (TBSRTC)" data-en="Bethesda System for thyroid (TBSRTC)">Bethesda للغدة الدرقية (TBSRTC)</li>
+      </ul>
+    </div>
+    <div class="ccard rose">
+      <span class="ci">🫁</span>
+      <h4 data-ar="سيتولوجي السوائل والإفرازات" data-en="Effusion & Fluid Cytology">سيتولوجي السوائل والإفرازات</h4>
+      <ul>
+        <li data-ar="الانصباب الجنبي والبريتوني والتأموري" data-en="Pleural, peritoneal and pericardial effusions">الانصباب الجنبي والبريتوني والتأموري</li>
+        <li data-ar="السائل الدماغي الشوكي (CSF)" data-en="Cerebrospinal fluid (CSF)">السائل الدماغي الشوكي (CSF)</li>
+        <li data-ar="بول — كشف سرطان المثانة" data-en="Urine — detection of bladder cancer">بول — كشف سرطان المثانة</li>
+        <li data-ar="بلغم وغسيل القصبات (BAL)" data-en="Sputum and bronchoalveolar lavage (BAL)">بلغم وغسيل القصبات (BAL)</li>
+      </ul>
+      <span class="pill pr" data-ar="⚠️ أولوية طارئة" data-en="⚠️ Urgent Priority">⚠️ أولوية طارئة</span>
+    </div>
+    <div class="ccard violet">
+      <span class="ci">🧪</span>
+      <h4 data-ar="تحضير المستحضرات الخلوية" data-en="Cytological Preparation Methods">تحضير المستحضرات الخلوية</h4>
+      <ul>
+        <li data-ar="Cytospin: ترسيب مركزي للخلايا من السوائل" data-en="Cytospin: centrifugal cell concentration from fluids">Cytospin: ترسيب مركزي من السوائل</li>
+        <li data-ar="Cell Block: تجميع الخلايا في قالب شمع للـ IHC" data-en="Cell block: embedding cells in wax for IHC">Cell Block: تجميع الخلايا للـ IHC</li>
+        <li data-ar="Smear Direct: مسحة مباشرة وثبيت فوري" data-en="Direct smear: immediate fixation">Smear Direct: مسحة مباشرة فورية</li>
+        <li data-ar="LBC: معالجة سائلة — أقل خلفية" data-en="LBC: liquid processing — cleaner background">LBC: معالجة سائلة أنظف</li>
+      </ul>
+    </div>
+    <div class="ccard teal">
+      <span class="ci">📋</span>
+      <h4 data-ar="نظام Bethesda لتقرير عنق الرحم" data-en="Bethesda System — Cervical Reporting">نظام Bethesda لتقرير عنق الرحم</h4>
+      <ul>
+        <li><strong>NILM</strong> — <span data-ar="لا تغيرات خبيثة" data-en="Negative for intraepithelial lesion">لا تغيرات خبيثة</span></li>
+        <li><strong>ASC-US</strong> — <span data-ar="خلايا حرشفية غير نمطية — غير محددة" data-en="Atypical squamous cells of undetermined significance">خلايا غير نمطية — غير محددة</span></li>
+        <li><strong>LSIL</strong> — <span data-ar="ضايقة داخل الظهارة درجة منخفضة" data-en="Low-grade squamous intraepithelial lesion">ضايقة درجة منخفضة</span></li>
+        <li><strong>HSIL</strong> — <span data-ar="ضايقة درجة عالية" data-en="High-grade squamous intraepithelial lesion">ضايقة درجة عالية</span></li>
+        <li><strong>AGC</strong> — <span data-ar="خلايا غدية غير نمطية" data-en="Atypical glandular cells">خلايا غدية غير نمطية</span></li>
+        <li><strong>Carcinoma</strong> — <span data-ar="سرطانة" data-en="Carcinoma">سرطانة</span></li>
+      </ul>
+    </div>
+    <div class="ccard amber">
+      <span class="ci">🎯</span>
+      <h4 data-ar="جودة المستحضر الخلوي" data-en="Cytological Preparation Quality">جودة المستحضر الخلوي</h4>
+      <ul>
+        <li data-ar="ثبيت فوري ≤ 5 ثوانٍ بعد أخذ المسحة" data-en="Immediate fixation ≤5 seconds after taking smear">ثبيت فوري ≤5 ثوانٍ بعد أخذ المسحة</li>
+        <li data-ar="اتجاه واحد عند المسح — لا ذهاب وإياب" data-en="Single-direction smearing — no back-and-forth">اتجاه واحد عند المسح فقط</li>
+        <li data-ar="سماكة مناسبة — لا سميك ولا شفاف" data-en="Appropriate thickness — not too thick or too thin">سماكة مناسبة — ليست سميكة أو شفافة</li>
+        <li data-ar="التسمية الصحيحة على الشريحة (ليس الكيس)" data-en="Label the slide directly (not the bag)">التسمية مباشرة على الشريحة</li>
+      </ul>
+      <span class="pill pa" data-ar="⭐ معيار الجودة" data-en="⭐ Quality Standard">⭐ معيار الجودة</span>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- ══════ STAINS ══════ -->
+<div class="wrap" id="stains">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(124,77,255,.1);border:1px solid rgba(124,77,255,.22);">🎨</div>
+    <div>
+      <h3 data-ar="الصبغات النسيجية والخلوية" data-en="Histological & Cytological Stains">الصبغات النسيجية والخلوية</h3>
+      <p data-ar="الصبغات الروتينية والخاصة مع تطبيقاتها التشخيصية" data-en="Routine and special stains with their diagnostic applications">الصبغات الروتينية والخاصة مع تطبيقاتها التشخيصية</p>
+    </div>
+  </div>
+
+  <h4 style="color:var(--amber);margin-bottom:1rem;font-size:.92rem;" data-ar="🟡 أولاً: الصبغات الروتينية الأساسية" data-en="🟡 I. Routine Stains">🟡 أولاً: الصبغات الروتينية الأساسية</h4>
+  <div class="stain-grid" style="margin-bottom:2rem">
+    <div class="stain-c">
+      <div class="sn" data-ar="الهيماتوكسيلين والإيوسين" data-en="Haematoxylin & Eosin">الهيماتوكسيلين والإيوسين</div>
+      <div class="sen">Haematoxylin & Eosin (H&E)</div>
+      <div class="su" data-ar="الصبغة الأساسية في كل مختبر نسيجي. تصبغ النواة باللون الأزرق/البنفسجي والسيتوبلازم باللون الوردي." data-en="The cornerstone stain of every histopathology laboratory. Nuclei stain blue/purple; cytoplasm stains pink/eosinophilic.">الصبغة الأساسية في كل مختبر نسيجي. نواة زرقاء، سيتوبلازم وردي.</div>
+      <div class="sw"><div class="swc" style="background:#3a5f9e" title="Nucleus"></div><div class="swc" style="background:#e8a4b8" title="Cytoplasm"></div></div>
+      <span class="pill pa" data-ar="الأكثر استخداماً" data-en="Most widely used">الأكثر استخداماً</span>
+    </div>
+    <div class="stain-c">
+      <div class="sn" data-ar="صبغة بابانيكولاو" data-en="Papanicolaou Stain">صبغة بابانيكولاو</div>
+      <div class="sen">Papanicolaou Stain (Pap)</div>
+      <div class="su" data-ar="الصبغة القياسية للسيتولوجي. توضح تفاصيل نواة الخلية وطبيعة السيتوبلازم بدقة عالية." data-en="Standard cytology stain. Reveals nuclear details and cytoplasmic character with high precision.">الصبغة القياسية للسيتولوجي. تكشف تفاصيل النواة والسيتوبلازم.</div>
+      <div class="sw"><div class="swc" style="background:#2a4a8e"></div><div class="swc" style="background:#f4a8b0"></div><div class="swc" style="background:#5ba85e"></div><div class="swc" style="background:#e8c048"></div></div>
+    </div>
+    <div class="stain-c">
+      <div class="sn" data-ar="صبغة مي-غرونوالد-غيمسا" data-en="May-Grünwald Giemsa">صبغة مي-غرونوالد-غيمسا</div>
+      <div class="sen">May-Grünwald Giemsa (MGG)</div>
+      <div class="su" data-ar="مثالية لـ FNAC والسيتولوجي الهيماتولوجي. تُبرز التفاصيل النووية وتمييز الخلايا المناعية." data-en="Ideal for FNAC and haematological cytology. Highlights nuclear details and immune cell differentiation.">مثالية لـ FNAC والسيتولوجي الهيماتولوجي.</div>
+      <div class="sw"><div class="swc" style="background:#5c3d8e"></div><div class="swc" style="background:#e8a848"></div><div class="swc" style="background:#d4e8b8"></div></div>
+    </div>
+  </div>
+
+  <h4 style="color:var(--teal2);margin-bottom:1rem;font-size:.92rem;" data-ar="🔵 ثانياً: الصبغات الخاصة (Special Stains)" data-en="🔵 II. Special Stains">🔵 ثانياً: الصبغات الخاصة</h4>
+  <div class="tbl-w" style="margin-bottom:2rem">
+    <table>
+      <thead>
+        <tr>
+          <th data-ar="الصبغة" data-en="Stain">الصبغة</th>
+          <th data-ar="الاختصار" data-en="Abbrev.">الاختصار</th>
+          <th data-ar="ما تكشفه" data-en="Demonstrates">ما تكشفه</th>
+          <th data-ar="التطبيق السريري" data-en="Clinical Use">التطبيق السريري</th>
+          <th data-ar="اللون الإيجابي" data-en="Positive Colour">اللون الإيجابي</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong data-ar="دوري اسيد شيف" data-en="Periodic Acid Schiff">دوري اسيد شيف</strong></td><td>PAS</td><td data-ar="السكريات، الغليكوجين، الفطريات" data-en="Polysaccharides, glycogen, fungi">السكريات، الغليكوجين، الفطريات</td><td data-ar="أمراض الكلى، الفطريات النسيجية" data-en="Renal diseases, tissue fungi">أمراض الكلى، الفطريات</td><td><span class="pill pr" style="margin:0" data-ar="وردي/أحمر فوشيا" data-en="Magenta/pink">وردي فوشيا</span></td></tr>
+        <tr><td><strong data-ar="ماسون ثلاثي اللون" data-en="Masson's Trichrome">ماسون ثلاثي اللون</strong></td><td>Masson's</td><td data-ar="الألياف الكولاجينية والعضلية" data-en="Collagen and muscle fibres">الكولاجين والعضلات</td><td data-ar="تليف الكبد والقلب، الأورام اللحمية" data-en="Liver/cardiac fibrosis, sarcomas">تليف الكبد والقلب</td><td><span class="pill pt" style="margin:0" data-ar="أزرق (كولاجين)" data-en="Blue (collagen)">أزرق — كولاجين</span></td></tr>
+        <tr><td><strong data-ar="زيل نيلسن" data-en="Ziehl-Neelsen">زيل نيلسن</strong></td><td>ZN / AFB</td><td data-ar="المتفطرات (السل والجذام)" data-en="Mycobacteria (TB and leprosy)">المتفطرات — السل</td><td data-ar="تشخيص السل النسيجي وداء الجذام" data-en="Tissue TB and leprosy diagnosis">السل النسيجي</td><td><span class="pill pr" style="margin:0" data-ar="أحمر على أزرق" data-en="Red on blue">أحمر على أزرق</span></td></tr>
+        <tr><td><strong data-ar="غروكوت ميتينامين فضة" data-en="Grocott's Methenamine Silver">غروكوت فضة</strong></td><td>GMS</td><td data-ar="جدار الفطريات والرئة الكيسية" data-en="Fungal cell walls, Pneumocystis">جدار الفطريات</td><td data-ar="Pneumocystis، Aspergillus، Candida" data-en="Pneumocystis, Aspergillus, Candida">PCP، Aspergillus، Candida</td><td><span class="pill pa" style="margin:0" data-ar="أسود على أخضر" data-en="Black on green">أسود على أخضر</span></td></tr>
+        <tr><td><strong data-ar="كونغو ريد" data-en="Congo Red">كونغو ريد</strong></td><td>Congo Red</td><td data-ar="ترسبات الأميلويد" data-en="Amyloid deposits">ترسبات الأميلويد</td><td data-ar="الداء النشواني في الأعضاء" data-en="Systemic and organ amyloidosis">الداء النشواني</td><td><span class="pill" style="background:rgba(255,140,60,.12);color:#ffa060;border:1px solid rgba(255,140,60,.28);margin:0" data-ar="ثنائي الانكسار" data-en="Apple-green birefringence">ثنائي الانكسار</span></td></tr>
+        <tr><td><strong data-ar="رأس برلين" data-en="Prussian Blue">رأس برلين</strong></td><td>Prussian Blue</td><td data-ar="ترسبات الحديد (هيموسيدرين)" data-en="Iron deposits (haemosiderin)">ترسبات الحديد</td><td data-ar="داء الحديد المفرط، نزيف قديم" data-en="Haemochromatosis, old haemorrhage">داء الحديد المفرط</td><td><span class="pill pt" style="margin:0" data-ar="أزرق تركواز" data-en="Prussian blue / turquoise">أزرق تركواز</span></td></tr>
+        <tr><td><strong data-ar="ميوسيكارمين" data-en="Mucicarmine">ميوسيكارمين</strong></td><td>Mucicarmine</td><td data-ar="المخاط الحمضي" data-en="Acid mucin">المخاط الحمضي</td><td data-ar="تصنيف أورام الغدد وفطر Cryptococcus" data-en="Glandular tumour typing, Cryptococcus">أورام الغدد، Cryptococcus</td><td><span class="pill pr" style="margin:0" data-ar="أحمر/وردي" data-en="Red/pink">أحمر/وردي</span></td></tr>
+        <tr><td><strong data-ar="غوردن-سويت (شبكي)" data-en="Gordon & Sweet (Reticulin)">غوردن-سويت</strong></td><td>Reticulin</td><td data-ar="الألياف الشبكية" data-en="Reticular fibres">الألياف الشبكية</td><td data-ar="سرطانات الكبد، الأورام اللمفاوية" data-en="Hepatocellular carcinoma, lymphomas">سرطانات الكبد، اللمفاوية</td><td><span class="pill pa" style="margin:0" data-ar="أسود" data-en="Black">أسود</span></td></tr>
+        <tr><td><strong data-ar="فون كوسا" data-en="Von Kossa">فون كوسا</strong></td><td>Von Kossa</td><td data-ar="ترسبات الكالسيوم" data-en="Calcium deposits">ترسبات الكالسيوم</td><td data-ar="التكلس المرضي، أمراض العظام" data-en="Pathological calcification, bone disease">التكلس المرضي</td><td><span class="pill" style="background:rgba(60,60,60,.5);color:#aaa;border:1px solid rgba(160,160,160,.25);margin:0" data-ar="أسود" data-en="Black">أسود</span></td></tr>
+        <tr><td><strong data-ar="فيرهوف-فان جيسون" data-en="Verhoeff-van Gieson">فيرهوف-فان جيسون</strong></td><td>EVG</td><td data-ar="الألياف المرنة والكولاجين" data-en="Elastic fibres and collagen">الألياف المرنة</td><td data-ar="أمراض الشرايين، تمدد الأوعية" data-en="Arterial disease, aneurysms">أمراض الشرايين</td><td><span class="pill pv" style="margin:0" data-ar="أسود (مرنة) / أحمر (كولاجين)" data-en="Black (elastic) / Red (collagen)">أسود / أحمر</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="color:var(--violet2);margin-bottom:1rem;font-size:.92rem;" data-ar="🟣 ثالثاً: الكيمياء المناعية النسيجية (IHC)" data-en="🟣 III. Immunohistochemistry (IHC)">🟣 ثالثاً: الكيمياء المناعية النسيجية</h4>
+  <div class="cgrid">
+    <div class="ccard violet">
+      <span class="ci">🔍</span>
+      <h4 data-ar="ما هو الـ IHC؟" data-en="What is IHC?">ما هو الـ IHC؟</h4>
+      <p data-ar="تقنية تستخدم أجساماً مضادة للكشف عن مستضدات بروتينية في الأنسجة. الركيزة الأساسية لتشخيص وتصنيف الأورام." data-en="A technique using antibodies to detect protein antigens in tissue sections. The cornerstone of tumour diagnosis and subtyping.">تقنية أجسام مضادة للكشف عن بروتينات نسيجية — أساس تشخيص الأورام.</p>
+      <ul>
+        <li data-ar="كشف نوع الورم وتحديد منشأه" data-en="Determine tumour type and origin">كشف نوع الورم وتحديد منشأه</li>
+        <li data-ar="مستقبلات الهرمونات ER/PR في سرطان الثدي" data-en="Hormone receptors ER/PR in breast cancer">مستقبلات ER/PR في سرطان الثدي</li>
+        <li data-ar="Her2/neu للعلاج الموجّه المستهدف" data-en="Her2/neu for targeted therapy">Her2/neu للعلاج الموجّه</li>
+        <li data-ar="Ki-67 لقياس معدل الانقسام الخلوي" data-en="Ki-67 proliferation index">Ki-67 لقياس معدل الانقسام</li>
+      </ul>
+    </div>
+    <div class="ccard violet">
+      <span class="ci">🧲</span>
+      <h4 data-ar="خطوات IHC الأساسية" data-en="IHC Protocol Steps">خطوات IHC الأساسية</h4>
+      <ul>
+        <li data-ar="إزالة الشمع وإعادة الترطيب" data-en="Deparaffinisation and rehydration">إزالة الشمع وإعادة الترطيب</li>
+        <li data-ar="استرداد المستضد (Antigen Retrieval) حراري أو إنزيمي" data-en="Antigen retrieval — heat or enzymatic">استرداد المستضد — حراري أو إنزيمي</li>
+        <li data-ar="حجب الإنزيم الداخلي (H₂O₂ 3%)" data-en="Endogenous peroxidase block (H₂O₂ 3%)">حجب الإنزيم الداخلي H₂O₂</li>
+        <li data-ar="إضافة الجسم المضاد الأولي (Primary Ab)" data-en="Apply primary antibody (Primary Ab)">الجسم المضاد الأولي</li>
+        <li data-ar="الجسم المضاد الثانوي + كروموجين DAB" data-en="Secondary antibody + DAB chromogen">الجسم المضاد الثانوي + DAB</li>
+        <li data-ar="صبغة هيماتوكسيلين مضادة" data-en="Haematoxylin counterstain">صبغة هيماتوكسيلين مضادة</li>
+      </ul>
+    </div>
+    <div class="ccard violet">
+      <span class="ci">🎯</span>
+      <h4 data-ar="علامات IHC الشائعة" data-en="Common IHC Markers">علامات IHC الشائعة</h4>
+      <ul>
+        <li data-ar="CK (Cytokeratin): للسرطانة الظهارية" data-en="CK (Cytokeratin): epithelial carcinoma">CK: السرطانة الظهارية</li>
+        <li data-ar="Vimentin: أورام اللحمة والساركوما" data-en="Vimentin: mesenchymal tumours / sarcoma">Vimentin: اللحمة والساركوما</li>
+        <li data-ar="CD20/CD3: تصنيف الأورام اللمفاوية" data-en="CD20/CD3: lymphoma classification">CD20/CD3: الأورام اللمفاوية</li>
+        <li data-ar="TTF-1: سرطان الرئة والغدة الدرقية" data-en="TTF-1: lung and thyroid carcinoma">TTF-1: الرئة والغدة الدرقية</li>
+        <li data-ar="PSA: سرطان البروستاتا" data-en="PSA: prostate carcinoma">PSA: سرطان البروستاتا</li>
+        <li data-ar="S-100: الميلانوما وأورام الأعصاب" data-en="S-100: melanoma and nerve sheath tumours">S-100: الميلانوما والأعصاب</li>
+        <li data-ar="p53 / p16: جينات القمع الورمي" data-en="p53 / p16: tumour suppressor genes">p53 / p16: جينات القمع الورمي</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- ══════ PROTOCOLS ══════ -->
+<div class="wrap" id="protocol">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(26,158,143,.1);border:1px solid rgba(26,158,143,.25);">📋</div>
+    <div>
+      <h3 data-ar="البروتوكولات والإجراءات المعيارية" data-en="Standard Operating Protocols (SOPs)">البروتوكولات والإجراءات المعيارية</h3>
+      <p data-ar="SOPs معتمدة للعمليات اليومية في المختبر النسيجي" data-en="Approved SOPs for daily histopathology laboratory operations">SOPs معتمدة للعمليات اليومية في المختبر النسيجي</p>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="sg">
+      <h4 data-ar="🟡 بروتوكول صبغة H&E الكاملة" data-en="🟡 Full H&E Staining Protocol">🟡 بروتوكول صبغة H&E الكاملة</h4>
+      <div class="sl">
+        <div class="step"><div class="snum">1</div><div class="sc"><h5 data-ar="إزالة الشمع (Deparaffinization)" data-en="Deparaffinisation">إزالة الشمع</h5><p data-ar="زيلين I→II→III (3 دق كل منهم). إزالة كاملة للشمع ضرورية للصبغة المتجانسة." data-en="Xylene I→II→III (3 min each). Complete deparaffinisation is essential for uniform staining.">زيلين I→II→III (3 دق لكل منهم). إزالة كاملة ضرورية.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sc"><h5 data-ar="الإماهة (Rehydration)" data-en="Rehydration">الإماهة</h5><p data-ar="كحول 100%×2 → 95% → 80% → 70% → ماء مقطر. كل خطوة دقيقتان." data-en="100% alcohol ×2 → 95% → 80% → 70% → distilled water. Two minutes each step.">كحول 100%→70%→ماء مقطر، دقيقتان لكل خطوة.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sc"><h5 data-ar="الهيماتوكسيلين" data-en="Haematoxylin">الهيماتوكسيلين</h5><p data-ar="Mayer's أو Harris Hematoxylin 5–10 دق → غسيل → أزرقة في ماء الصنبور 2 دق." data-en="Mayer's or Harris Haematoxylin 5–10 min → wash → bluing in tap water 2 min.">Mayer's أو Harris 5–10 دق → غسيل → أزرقة 2 دق.</p></div></div>
+        <div class="step"><div class="snum">4</div><div class="sc"><h5 data-ar="الإيوسين" data-en="Eosin">الإيوسين</h5><p data-ar="Eosin Y 1% (مائي أو كحولي) 2–3 دقائق. التركيز والوقت يؤثران على كثافة اللون الوردي." data-en="Eosin Y 1% (aqueous or alcoholic) 2–3 minutes. Concentration and time affect pink intensity.">Eosin Y 1% لمدة 2–3 دق. يؤثر التركيز على شدة اللون.</p></div></div>
+        <div class="step"><div class="snum">5</div><div class="sc"><h5 data-ar="التجفيف والتوضيح والتغطية" data-en="Dehydration, Clearing & Coverslipping">التجفيف والتغطية</h5><p data-ar="كحول تصاعدي 70%→100% → زيلين → DPX medium → غطاء زجاجي. تجنب الفقاعات." data-en="Ascending alcohols 70%→100% → xylene → DPX medium → glass coverslip. Avoid air bubbles.">كحول تصاعدي → زيلين → DPX. تجنب الفقاعات الهوائية.</p></div></div>
+      </div>
+    </div>
+    <div class="sg">
+      <h4 data-ar="🔵 بروتوكول صبغة Pap للسيتولوجي" data-en="🔵 Pap Stain Protocol for Cytology">🔵 بروتوكول صبغة Pap للسيتولوجي</h4>
+      <div class="sl">
+        <div class="step"><div class="snum">1</div><div class="sc"><h5 data-ar="الثبيت الفوري" data-en="Immediate Fixation">الثبيت الفوري</h5><p data-ar="غمس الشريحة في 95% كحول إيثيلي فور الانتهاء من المسحة مباشرة. تأخر 5 ثوانٍ يسبب جفافاً يشوه الخلايا." data-en="Immerse slide in 95% ethyl alcohol immediately after smearing. Delay of just 5 seconds causes drying artefacts.">غمس فوري في 95% كحول. تأخر 5 ثوانٍ يشوه الخلايا.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sc"><h5 data-ar="الإماهة التدريجية" data-en="Progressive Rehydration">الإماهة التدريجية</h5><p data-ar="95% → 80% → 70% → 50% → ماء مقطر. كل 10 تغطيسات (dips) لكل خطوة." data-en="95% → 80% → 70% → 50% → distilled water. Ten dips at each step.">95%→50%→ماء مقطر. 10 تغطيسات لكل خطوة.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sc"><h5 data-ar="هيماتوكسيلين هاريس" data-en="Harris Haematoxylin">هيماتوكسيلين هاريس</h5><p data-ar="3–5 دقائق → غسيل → HCl 0.25% دقيقة (تمييز) → ماء جاري 5 دق (أزرقة نووية)." data-en="3–5 min → wash → 0.25% HCl 1 min (differentiation) → running water 5 min (nuclear bluing).">3–5 دق → تمييز HCl → أزرقة نووية بالماء الجاري.</p></div></div>
+        <div class="step"><div class="snum">4</div><div class="sc"><h5 data-ar="OG-6 ثم EA-65" data-en="OG-6 then EA-65">OG-6 ثم EA-65</h5><p data-ar="OG-6 (كيراتين) 1.5 دق → EA-65 (سيتوبلازم) 3 دق. تمييز كحولي بين الصبغتين." data-en="OG-6 (keratin) 1.5 min → EA-65 (cytoplasm) 3 min. Alcoholic differentiation between stains.">OG-6 للكيراتين → EA-65 للسيتوبلازم مع تمييز كحولي.</p></div></div>
+        <div class="step"><div class="snum">5</div><div class="sc"><h5 data-ar="التجفيف والتغطية" data-en="Dehydration & Coverslipping">التجفيف والتغطية</h5><p data-ar="كحول 95%→100% → زيلين → DPX. النتيجة: نواة زرقاء، سيتوبلازم أخضر/وردي/برتقالي." data-en="95%→100% alcohol → xylene → DPX. Result: blue nucleus, green/pink/orange cytoplasm.">كحول→زيلين→DPX. نواة زرقاء، سيتوبلازم أخضر/وردي.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- ══════ SAFETY ══════ -->
+<div class="wrap" id="safety">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.25);">🛡️</div>
+    <div>
+      <h3 data-ar="السلامة المخبرية — الهيستو والسيتو" data-en="Laboratory Safety — Histo & Cyto">السلامة المخبرية — الهيستو والسيتو</h3>
+      <p data-ar="إجراءات السلامة المتخصصة والإلزامية لكل فني نسيجي" data-en="Mandatory specialised safety procedures for every histology technician">إجراءات السلامة الإلزامية لكل فني نسيجي</p>
+    </div>
+  </div>
+  <div class="sbox">
+    <div class="shdr">
+      <div class="ale">🚨</div>
+      <div>
+        <h4 data-ar="تحذير — مواد كيميائية خطرة (COSHH)" data-en="Warning — Hazardous Chemicals (COSHH)">تحذير — مواد كيميائية خطرة</h4>
+        <p data-ar="مختبر الهيستوباثولوجي يحتوي على مواد مسرطنة ومشتعلة وسامة. الامتثال لإجراءات السلامة إلزامي قانونياً." data-en="Histopathology laboratories contain carcinogens, flammable and toxic substances. Safety compliance is a legal requirement.">الفورمالين مسرطن، الزيلين قابل للاشتعال. الامتثال للسلامة إلزامي قانونياً.</p>
+      </div>
+    </div>
+    <div class="sgr">
+      <div class="si2"><span class="ico">☣️</span><h5 data-ar="الفورمالين — مسرطن IARC مجموعة 1" data-en="Formalin — IARC Group 1 Carcinogen">الفورمالين — مسرطن IARC</h5><p data-ar="الفورمالدهيد مسرطن IARC مجموعة (1). العمل داخل خزانة شفط إلزامياً. TLV لا يتجاوز 0.3 ppm." data-en="Formaldehyde is an IARC Group 1 carcinogen. Work inside fume hood is mandatory. TLV must not exceed 0.3 ppm.">مسرطن مجموعة 1. العمل داخل خزانة شفط. TLV ≤0.3 ppm.</p></div>
+      <div class="si2"><span class="ico">🔥</span><h5 data-ar="الزيلين والكحول — قابلان للاشتعال" data-en="Xylene & Alcohol — Flammable">الزيلين والكحول — قابلان للاشتعال</h5><p data-ar="تخزين في خزانات مانعة للانفجار. لا مصادر اشتعال في منطقة الصبغ. طفاية CO₂ على مسافة ≤10 أمتار." data-en="Store in explosion-proof cabinets. No ignition sources in staining area. CO₂ extinguisher within 10 metres.">خزانات مانعة للانفجار. لا لهب بالقرب. طفاية CO₂ قريبة.</p></div>
+      <div class="si2"><span class="ico">🥼</span><h5 data-ar="معدات الحماية الشخصية" data-en="Personal Protective Equipment (PPE)">معدات الحماية الشخصية</h5><p data-ar="معطف كيميائي، قفازات نيتريل مزدوجة، نظارات واقية، قناع نصفي مع فلتر مشتركات عضوية (OV)." data-en="Chemical-resistant lab coat, double nitrile gloves, goggles, half-mask respirator with organic vapour (OV) filter.">معطف كيميائي + قفازات نيتريل + نظارة + قناع OV.</p></div>
+      <div class="si2"><span class="ico">🧹</span><h5 data-ar="النفايات الكيميائية — ترميز الألوان" data-en="Chemical Waste — Colour Coding">النفايات الكيميائية</h5><p data-ar="الفورمالين: حاوية حمراء مُوسَمة. الزيلين/الكحول: حاوية صفراء. حظر الصرف في المجاري. شركة ترحيل معتمدة." data-en="Formalin: labelled red container. Xylene/alcohol: yellow container. No drain disposal. Licensed waste contractor required.">فورمالين ← أحمر | زيلين ← أصفر. حظر صرف المجاري.</p></div>
+      <div class="si2"><span class="ico">🩸</span><h5 data-ar="مخاطر التعرض للدم — احتياطات شاملة" data-en="Blood Exposure — Universal Precautions">مخاطر الدم — احتياطات شاملة</h5><p data-ar="جميع عينات النسيج تُعامَل كمعدية (Universal Precautions). قفازات عند التقطيع. أي وخز — بروتوكول إبلاغ فوري." data-en="All tissue specimens treated as infectious (Universal Precautions). Gloves during grossing. Any needlestick — immediate incident reporting.">كل عينة معدية. قفازات دائماً. وخز ← إبلاغ فوري.</p></div>
+      <div class="si2"><span class="ico">✂️</span><h5 data-ar="شفرات الميكروتوم — أدوات حادة" data-en="Microtome Blades — Sharps Safety">شفرات الميكروتوم</h5><p data-ar="لا إعادة الغطاء يدوياً. تغيير الشفرة بملقط أو ماسك مخصص فقط. الشفرات المستعملة في حاويات حادة مُوسَمة." data-en="Never recap blades manually. Change blade with forceps or dedicated holder only. Used blades in labelled sharps containers only.">تغيير بالملقط فقط. حاويات حادة للشفرات المستعملة.</p></div>
+      <div class="si2"><span class="ico">🌡️</span><h5 data-ar="حرارة عالية — محطة التضمين" data-en="Heat Hazard — Embedding Station">حرارة عالية — محطة التضمين</h5><p data-ar="الشمع المنصهر 60–65°C. قفازات مقاومة للحرارة إلزامية. لا لمس مباشر للأسطح الساخنة أبداً." data-en="Molten wax at 60–65°C. Heat-resistant gloves are mandatory. Never touch hot surfaces directly.">شمع 60–65°C. قفازات حرارية إلزامية.</p></div>
+      <div class="si2"><span class="ico">💨</span><h5 data-ar="التهوية — مراقبة الهواء" data-en="Ventilation — Air Monitoring">التهوية — مراقبة الهواء</h5><p data-ar="مقياس فورمالدهيد مستمر في قاعة المعالجة. تشغيل الشفط 30 دق قبل بدء العمل. فحص المرشحات شهرياً." data-en="Continuous formaldehyde monitor in processing room. Run extraction 30 min before starting work. Monthly filter inspection.">مقياس فورمالدهيد مستمر. تشغيل الشفط 30 دق قبل العمل.</p></div>
+      <div class="si2"><span class="ico">🦠</span><h5 data-ar="العينات المعدية الخاصة" data-en="High-Risk Infectious Specimens">العينات المعدية الخاصة</h5><p data-ar="SOP مخصص لعينات السل، CJD، HIV. فتح العينات فقط داخل BSC. كيسين بلاستيكيين مزدوجين." data-en="Dedicated SOP for TB, CJD and HIV specimens. Open specimens inside BSC only. Double plastic bag containment.">SOP خاص للسل، CJD، HIV. فتح داخل BSC فقط.</p></div>
+      <div class="si2"><span class="ico">💧</span><h5 data-ar="إسعاف كيميائي فوري" data-en="Chemical First Aid">إسعاف كيميائي فوري</h5><p data-ar="ملامسة الجلد للفورمالين: غسل بالماء والصابون 20 دق. إصابة العين: غسيل في محطة طوارئ 15 دق، ثم تقييم طبي." data-en="Skin contact with formalin: wash with soap and water for 20 min. Eye splash: use emergency eye wash for 15 min, then seek medical assessment.">جلد ← ماء وصابون 20 دق | عين ← محطة طوارئ 15 دق.</p></div>
+      <div class="si2"><span class="ico">📝</span><h5 data-ar="التوثيق والتتبع" data-en="Documentation & Traceability">التوثيق والتتبع</h5><p data-ar="كل حادثة كيميائية تُسجَّل في سجل COSHH. مراجعة ربع سنوية لصحائف بيانات السلامة (SDS)." data-en="Every chemical incident recorded in COSHH register. Quarterly review of Safety Data Sheets (SDS).">كل حادثة ← سجل COSHH. مراجعة SDS ربع سنوية.</p></div>
+      <div class="si2"><span class="ico">🔐</span><h5 data-ar="تخزين المواد الكيميائية" data-en="Chemical Storage">تخزين المواد الكيميائية</h5><p data-ar="الفورمالين <25°C بعيداً عن الضوء. الكحول في خزانة مضادة للانفجار. صلاحية الصبغات الحساسة أسبوع." data-en="Formalin <25°C away from light. Alcohol in explosion-proof cabinet. Sensitive stain solutions expire within one week.">فورمالين <25°C. كحول في خزانة مضادة للانفجار.</p></div>
+    </div>
+    <div class="clbox">
+      <h4 data-ar="✅ قائمة المراجعة اليومية للفني النسيجي" data-en="✅ Daily Checklist for the Histology Technician">✅ قائمة المراجعة اليومية</h4>
+      <div class="clg">
+        <label><input type="checkbox"/><span data-ar="فحص مستوى الفورمالين وخزانة الشفط" data-en="Check formalin level and fume hood">فحص مستوى الفورمالين وخزانة الشفط</span></label>
+        <label><input type="checkbox"/><span data-ar="التأكد من عمل جهاز المعالجة الليلي" data-en="Verify overnight processor run">التأكد من عمل جهاز المعالجة الليلي</span></label>
+        <label><input type="checkbox"/><span data-ar="تحضير الكاسات الجديدة والتسمية" data-en="Prepare and label new cassettes">تحضير الكاسات الجديدة والتسمية</span></label>
+        <label><input type="checkbox"/><span data-ar="فحص درجة حرارة حمام الشمع (58–60°C)" data-en="Check wax bath temperature (58–60°C)">فحص حمام الشمع 58–60°C</span></label>
+        <label><input type="checkbox"/><span data-ar="تجديد محاليل الصبغ H&E إن لزم" data-en="Renew H&E staining solutions if needed">تجديد محاليل الصبغ H&E</span></label>
+        <label><input type="checkbox"/><span data-ar="تسليم الكتل السابقة للأرشيف" data-en="Archive previous paraffin blocks">تسليم الكتل السابقة للأرشيف</span></label>
+        <label><input type="checkbox"/><span data-ar="ارتداء PPE الكامل قبل بدء العمل" data-en="Don full PPE before starting work">ارتداء PPE الكامل قبل العمل</span></label>
+        <label><input type="checkbox"/><span data-ar="تشغيل جهاز قياس الفورمالدهيد" data-en="Activate formaldehyde monitor">تشغيل جهاز قياس الفورمالدهيد</span></label>
+        <label><input type="checkbox"/><span data-ar="التحقق من صلاحية الكواشف" data-en="Check reagent expiry dates">التحقق من صلاحية الكواشف</span></label>
+        <label><input type="checkbox"/><span data-ar="توثيق جميع العينات الواردة" data-en="Document all received specimens">توثيق جميع العينات الواردة</span></label>
+        <label><input type="checkbox"/><span data-ar="التخلص من النفايات الكيميائية" data-en="Dispose of chemical waste properly">التخلص من النفايات الكيميائية</span></label>
+        <label><input type="checkbox"/><span data-ar="تنظيف الميكروتوم وتغطيته" data-en="Clean and cover the microtome">تنظيف الميكروتوم وتغطيته</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- ══════ REFERENCES ══════ -->
+<div class="wrap" id="references">
+  <div class="stitle">
+    <div class="stitle-icon" style="background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.22);">📚</div>
+    <div>
+      <h3 data-ar="المراجع العلمية الموثوقة" data-en="Authoritative Scientific References">المراجع العلمية الموثوقة</h3>
+      <p data-ar="مصادر دولية معتمدة في الهيستوباثولوجي والسيتولوجي" data-en="International authoritative sources in histopathology and cytology">مصادر دولية معتمدة في الهيستوباثولوجي والسيتولوجي</p>
+    </div>
+  </div>
+  <div class="rl">
+    <div class="ri"><span class="rn">[1]</span><div class="rb"><strong>Bancroft, J.D. & Layton, C. (2019).</strong> <em>Bancroft's Theory and Practice of Histological Techniques</em>, 8th Ed. Elsevier.<br/><span class="rtag" style="background:rgba(232,160,32,.1);color:var(--amber2);border:1px solid rgba(232,160,32,.22);" data-ar="📖 المرجع الأساسي في الهيستوباثولوجي" data-en="📖 Primary Histopathology Reference">📖 المرجع الأساسي في الهيستوباثولوجي</span></div></div>
+    <div class="ri"><span class="rn">[2]</span><div class="rb"><strong>DeMay, R.M. (2012).</strong> <em>The Art & Science of Cytopathology</em>, 2nd Ed. ASCP Press.<br/><span class="rtag" style="background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.22);" data-ar="📖 المرجع الأساسي في السيتولوجي" data-en="📖 Primary Cytopathology Reference">📖 المرجع الأساسي في السيتولوجي</span></div></div>
+    <div class="ri"><span class="rn">[3]</span><div class="rb"><strong>WHO Classification of Tumours (Blue Books), 5th Ed. (2019–2024).</strong> IARC Press, Lyon.<br/><a href="https://tumourclassification.iarc.who.int" target="_blank">🔗 tumourclassification.iarc.who.int</a><br/><span class="rtag" style="background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.22);" data-ar="🌐 التصنيف العالمي للأورام" data-en="🌐 WHO Global Tumour Classification">🌐 التصنيف العالمي للأورام</span></div></div>
+    <div class="ri"><span class="rn">[4]</span><div class="rb"><strong>Nolte, K.B. et al. (2020).</strong> <em>The Bethesda System for Reporting Cervical Cytology</em>, 3rd Ed. Springer.<br/><span class="rtag" style="background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.22);" data-ar="📄 نظام Bethesda الرسمي" data-en="📄 Official Bethesda System">📄 نظام Bethesda الرسمي</span></div></div>
+    <div class="ri"><span class="rn">[5]</span><div class="rb"><strong>College of American Pathologists (CAP).</strong> Histology Proficiency Testing & Accreditation Guidelines.<br/><a href="https://www.cap.org/laboratory-improvement" target="_blank">🔗 cap.org/laboratory-improvement</a></div></div>
+    <div class="ri"><span class="rn">[6]</span><div class="rb"><strong>Royal College of Pathologists (RCPath, UK).</strong> Guidelines for Histopathology and Cytopathology Practice.<br/><a href="https://www.rcpath.org/profession/guidelines.html" target="_blank">🔗 rcpath.org/profession/guidelines</a></div></div>
+    <div class="ri"><span class="rn">[7]</span><div class="rb"><strong>Kumar, V., Abbas, A.K. & Aster, J.C. (2020).</strong> <em>Robbins & Cotran Pathologic Basis of Disease</em>, 10th Ed. Elsevier.</div></div>
+    <div class="ri"><span class="rn">[8]</span><div class="rb"><strong>IARC (2012).</strong> Formaldehyde — Monograph Volume 100F. Group 1 Carcinogen.<br/><a href="https://monographs.iarc.who.int" target="_blank">🔗 monographs.iarc.who.int</a><br/><span class="rtag" style="background:rgba(192,57,43,.1);color:#e57373;border:1px solid rgba(192,57,43,.28);" data-ar="⚠️ مسرطن رسمي — سلامة" data-en="⚠️ Classified Carcinogen — Safety">⚠️ مسرطن رسمي — سلامة</span></div></div>
+    <div class="ri"><span class="rn">[9]</span><div class="rb"><strong>Cibas, E.S. & Ducatman, B.S. (2020).</strong> <em>Cytology: Diagnostic Principles and Clinical Correlates</em>, 5th Ed. Elsevier.</div></div>
+    <div class="ri"><span class="rn">[10]</span><div class="rb"><strong>Leong, A.S.Y. & Cooper, K. (2003).</strong> <em>Manual of Diagnostic Antibodies for Immunohistology</em>. Greenwich Medical Media.<br/><span class="rtag" style="background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.22);" data-ar="🟣 مرجع أجسام IHC المضادة" data-en="🟣 IHC Antibody Reference">🟣 مرجع أجسام IHC المضادة</span></div></div>
+    <div class="ri"><span class="rn">[11]</span><div class="rb"><strong>UK NEQAS.</strong> Immunocytochemistry & ISH Quality Assessment Scheme.<br/><a href="https://www.ukneqas.org.uk" target="_blank">🔗 ukneqas.org.uk</a></div></div>
+    <div class="ri"><span class="rn">[12]</span><div class="rb"><strong>ASCP (American Society for Clinical Pathology).</strong> Histotechnology Certification & Practice Standards.<br/><a href="https://www.ascp.org" target="_blank">🔗 ascp.org</a></div></div>
+  </div>
+</div>
+
+<!-- ══════ NEWS ══════ -->
+<div id="news" class="nzone">
+  <div class="ninner">
+    <div class="nbar">
+      <div class="nbl">
+        <div class="nbico">🌐</div>
+        <div>
+          <h3 data-ar="أخبار الهيستوباثولوجي والسيتولوجي العالمية" data-en="Global Histopathology & Cytology News">أخبار الهيستوباثولوجي والسيتولوجي العالمية</h3>
+          <p data-ar="Live Feed — تحديث مستمر" data-en="Live Feed — Continuously Updated">Live Feed — تحديث مستمر</p>
+        </div>
+      </div>
+      <div class="nbr">
+        <div class="nlive"><div class="ndot"></div><span data-ar="مباشر" data-en="Live">مباشر</span></div>
+        <button class="nrbtn" id="nBtn" onclick="nRefresh()"><span id="nIcon">↻</span> <span data-ar="تحديث" data-en="Refresh">تحديث</span></button>
+      </div>
+    </div>
+    <div class="ntimer">
+      <span class="ntl" data-ar="التحديث بعد" data-en="Next update in">التحديث بعد</span>
+      <div class="ntr"><div class="ntf" id="nFill" style="width:100%"></div></div>
+      <span class="ntn" id="nNum">60</span>
+      <span class="ntl" data-ar="ث" data-en="s">ث</span>
+      <span class="nupd" id="nUpd"></span>
+    </div>
+    <div class="ngrid" id="nGrid"></div>
+  </div>
+</div>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="fg">
+    <div class="fc">
+      <h4 data-ar="🔬 عن الموقع" data-en="🔬 About">🔬 <span data-ar="عن الموقع" data-en="About">عن الموقع</span></h4>
+      <p data-ar="موقع علمي متخصص في الهيستوباثولوجي والسيتولوجي للكوادر المخبرية." data-en="A specialist scientific website in histopathology and cytology for laboratory professionals.">موقع علمي متخصص في الهيستوباثولوجي والسيتولوجي للكوادر المخبرية.</p>
+      <p style="margin-top:.4rem" data-ar="المحتوى تعليمي مهني للأغراض الأكاديمية." data-en="Content is for educational and professional purposes only.">المحتوى تعليمي مهني للأغراض الأكاديمية.</p>
+    </div>
+    <div class="fc">
+      <h4>👤 <span data-ar="مأمون السعودي" data-en="Mamoun Al-Saudi">مأمون السعودي</span></h4>
+      <p data-ar="أخصائي المختبرات الطبية" data-en="Medical Laboratory Specialist">أخصائي المختبرات الطبية</p>
+      <p data-ar="متخصص في الهيستوباثولوجي والسيتولوجي" data-en="Specialised in Histopathology & Cytology">متخصص في الهيستوباثولوجي والسيتولوجي</p>
+      <a href="https://wa.me/962799146795" target="_blank">📱 WhatsApp: ‎+962799146795</a>
+    </div>
+    <div class="fc">
+      <h4>📡 <span data-ar="مكتبة طب مخبري" data-en="Lab Medicine Library">مكتبة طب مخبري</span></h4>
+      <p data-ar="قناة تيليغرام متخصصة في علم المختبرات" data-en="Telegram channel specialised in laboratory medicine">قناة تيليغرام متخصصة في علم المختبرات</p>
+      <a href="https://t.me/alshamelmls" target="_blank">📲 t.me/alshamelmls</a>
+    </div>
+    <div class="fc">
+      <h4 data-ar="🔗 روابط علمية" data-en="🔗 Scientific Links">🔗 <span data-ar="روابط علمية" data-en="Scientific Links">روابط علمية</span></h4>
+      <a href="https://tumourclassification.iarc.who.int" target="_blank">WHO Tumour Classification</a>
+      <a href="https://www.cap.org" target="_blank">CAP — College of American Pathologists</a>
+      <a href="https://www.rcpath.org" target="_blank">RCPath — Royal College of Pathologists</a>
+      <a href="https://www.ascp.org" target="_blank">ASCP — American Society for Clinical Pathology</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2024 <span data-ar="مختبر الهيستوباثولوجي والسيتولوجي — أخصائي المختبرات مأمون السعودي | جميع الحقوق محفوظة" data-en="Histopathology & Cytology Lab — Medical Laboratory Specialist Mamoun Al-Saudi | All Rights Reserved">مختبر الهيستوباثولوجي والسيتولوجي — أخصائي المختبرات مأمون السعودي | جميع الحقوق محفوظة</p>
+    <p style="margin-top:.35rem">📱 <strong style="color:var(--amber)">+962799146795</strong> | 📡 <a href="https://t.me/alshamelmls" style="color:var(--amber)">t.me/alshamelmls</a></p>
+  </div>
+</footer>
+
+<script>
+// ── LANGUAGE SYSTEM ──
+let currentLang = 'ar';
+
+function setLang(lang) {
+  currentLang = lang;
+  const root = document.getElementById('htmlRoot');
+  const body = document.body;
+  const arBtn = document.getElementById('arBtn');
+  const enBtn = document.getElementById('enBtn');
+
+  if (lang === 'en') {
+    root.setAttribute('lang', 'en');
+    root.setAttribute('dir', 'ltr');
+    body.classList.add('en');
+    arBtn.classList.remove('active-lang');
+    enBtn.classList.add('active-lang');
+    document.title = 'Histopathology & Cytology Lab | Mamoun Al-Saudi';
+  } else {
+    root.setAttribute('lang', 'ar');
+    root.setAttribute('dir', 'rtl');
+    body.classList.remove('en');
+    arBtn.classList.add('active-lang');
+    enBtn.classList.remove('active-lang');
+    document.title = 'مختبر الهيستوباثولوجي والسيتولوجي | مأمون السعودي';
+  }
+
+  // Translate all elements with data-ar / data-en
+  document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+    const val = el.getAttribute(`data-${lang}`);
+    if (!val) return;
+    if (el.tagName === 'INPUT') { el.placeholder = val; return; }
+    el.innerHTML = val;
+  });
+
+  // Update news
+  nRender();
+}
+
+// ── FLOATING TISSUE CELLS ──
+const tb = document.getElementById('tissBg');
+for (let i = 0; i < 18; i++) {
+  const d = document.createElement('div');
+  d.className = 'tc';
+  const s = Math.random() * 55 + 18;
+  const cols = ['rgba(232,160,32,.07)','rgba(26,158,143,.06)','rgba(192,57,43,.05)','rgba(124,77,255,.05)'];
+  d.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};border:1px solid rgba(232,160,32,.1);animation-duration:${Math.random()*18+12}s;animation-delay:${Math.random()*12}s;`;
+  tb.appendChild(d);
+}
+
+// ── NAV SMOOTH SCROLL ──
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+const ioObs = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      const id = en.target.id;
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.25 });
+document.querySelectorAll('[id]').forEach(s => ioObs.observe(s));
+
+// ── NEWS DATA (bilingual) ──
+const ND = {
+  ar: [
+    {t:"الذكاء الاصطناعي يطابق أداء أطباء الباثولوجي في تشخيص سرطان البروستاتا",s:"نظام AI طوّرته جوجل ديب مايند حقق دقة 98% في الكشف عن الغدة السرطانية من شرائح H&E الرقمية.",c:"تقنية",src:"Nature Medicine",r:"الولايات المتحدة"},
+    {t:"تقنية Spatial Transcriptomics تحوّل تحليل الأنسجة الخبيثة",s:"تتيح التقنية ربط بيانات التعبير الجيني بموقعها الدقيق داخل شريحة النسيج، مما يكشف عن غير تجانس الأورام بدقة غير مسبوقة.",c:"اكتشاف",src:"Cell",r:"السويد"},
+    {t:"السيتولوجي السائل مدمج مع الذكاء الاصطناعي لفحص عنق الرحم",s:"شركة Hologic أعلنت عن نظام ThinPrep الذكي بحساسية 96% مع تقليل العينات غير التشخيصية بنسبة 40%.",c:"تقنية",src:"Cytopathology Journal",r:"المملكة المتحدة"},
+    {t:"بروتوكول جديد لتثبيت العينات بدون فورمالين لحماية الفنيين",s:"طور باحثون أوروبيون محلول تثبيت غير ألدهيدي يحافظ على جودة النسيج ومستضدات الـ IHC دون المخاطر المسرطنة.",c:"بحث",src:"Histopathology Journal",r:"ألمانيا"},
+    {t:"نظام تصنيف WHO 2024 للأورام الهضمية",s:"أصدر IARC النسخة المحدثة من التصنيف الأزرق لأورام الجهاز الهضمي متضمنة 47 كياناً مرضياً جديداً.",c:"صحة",src:"WHO IARC",r:"فرنسا"},
+    {t:"IHC المتعدد (Multiplexed IHC) يغيّر تشخيص الأورام",s:"تقنية Opal Multiplex تتيح دراسة 7 علامات IHC في شريحة واحدة برسم خريطة دقيقة للبيئة الميكروية للورم.",c:"تقنية",src:"Journal of Pathology",r:"الولايات المتحدة"},
+    {t:"FNAC عبر الروبوت في الأورام العميقة يحقق دقة 99%",s:"نظام روبوتي موجّه بالموجات فوق الصوتية يُجري FNAC من الغدد العميقة بدقة توجيه 99% مع تقليل المضاعفات.",c:"تقنية",src:"Endoscopy International",r:"اليابان"},
+    {t:"علامة IHC جديدة (TRPS1) تميّز سرطان الثدي ثلاثي السالب",s:"بروتين TRPS1 أثبت كفاءة تشخيصية بحساسية 97% في تمييز سرطان الثدي ثلاثي السالب من السرطانات الغدية الأخرى.",c:"اكتشاف",src:"Am. J. Surgical Pathology",r:"أستراليا"},
+    {t:"الباثولوجي الرقمي يُسرّع التشخيص في مناطق الخليج النائية",s:"مبادرة إماراتية-سعودية لنشر منصات مشاركة الشرائح الرقمية تتيح استشارة خبراء الباثولوجي عن بُعد.",c:"صحة",src:"هيئة الصحة دبي",r:"الإمارات"},
+    {t:"تقنية FISH الجديدة تكشف إعادة الترتيب في الأورام اللمفاوية",s:"بروبات FISH متعددة الألوان طُوِّرت لتشخيص triple-hit lymphoma في جلسة واحدة بدقة 100%.",c:"اكتشاف",src:"Blood Journal",r:"المملكة المتحدة"},
+    {t:"خوارزمية AI تتنبأ بالاستجابة للعلاج الكيميائي من شرائح H&E",s:"نموذج MIT يتنبأ باستجابة سرطان القولون لـ FOLFOX من الشريحة الروتينية دون فحوص جينومية مكلفة.",c:"بحث",src:"Nature Cancer",r:"الولايات المتحدة"},
+    {t:"تثبيت الأنسجة بالميكروويف يختصر وقت المعالجة لساعتين فقط",s:"برنامج تثبيت الميكروويف يُعادل جودة الفورمالين ويُقلل وقت تثبيت الخزعات الصغيرة من 24 ساعة لساعتين.",c:"تقنية",src:"Journal of Histotechnology",r:"فرنسا"},
+    {t:"أطلس الأورام الرقمي للمملكة العربية السعودية رسمياً",s:"وزارة الصحة السعودية أطلقت قاعدة بيانات مصوّرة لأكثر من 50,000 شريحة نسيجية موثقة.",c:"صحة",src:"وزارة الصحة السعودية",r:"المملكة العربية السعودية"},
+    {t:"سيتولوجي السائل الدماغي يكشف الأورام قبل التصوير بستة أشهر",s:"تقنية cfDNA من السائل الدماغي الشوكي تكتشف تكرار الأورام النخامية قبل ظهورها بالرنين المغناطيسي بستة أشهر.",c:"اكتشاف",src:"Neuro-Oncology",r:"ألمانيا"},
+    {t:"الكيمياء المناعية الرقمية تُعيد تعريف درجة ER في سرطان الثدي",s:"قياس ER الكمي بالذكاء الاصطناعي أكثر قابلية للتكرار من التقدير البصري البشري في دراسة متعددة المراكز.",c:"بحث",src:"Breast Cancer Research",r:"هولندا"},
+    {t:"اعتماد ISO 15189 لمختبرات الباثولوجي في الأردن",s:"هيئة الاعتماد الأردنية أعلنت اشتراط حصول مختبرات الهيستوباثولوجي على اعتماد ISO 15189 بحلول 2026.",c:"صحة",src:"المجلس الطبي الأردني",r:"الأردن"},
+  ],
+  en: [
+    {t:"AI Matches Pathologist Performance in Prostate Cancer Diagnosis",s:"A Google DeepMind AI system achieved 98% accuracy in detecting prostate carcinoma on digital H&E slides, paving the way for fully digital pathology.",c:"Technology",src:"Nature Medicine",r:"USA"},
+    {t:"Spatial Transcriptomics Transforms Malignant Tissue Analysis",s:"The technology maps gene expression data to precise locations within tissue sections, revealing tumour heterogeneity with unprecedented resolution.",c:"Discovery",src:"Cell",r:"Sweden"},
+    {t:"Liquid-Based Cytology Integrated with AI for Cervical Screening",s:"Hologic announced an intelligent ThinPrep system achieving 96% sensitivity for HSIL detection while reducing unsatisfactory samples by 40%.",c:"Technology",src:"Cytopathology Journal",r:"UK"},
+    {t:"New Formalin-Free Fixation Protocol Protects Laboratory Staff",s:"European researchers developed a non-aldehyde fixative that preserves tissue morphology and IHC antigens without the carcinogenic hazards of formalin.",c:"Research",src:"Histopathology Journal",r:"Germany"},
+    {t:"WHO 2024 Classification of Gastrointestinal Tumours Released",s:"IARC published an updated Blue Book for GI tumours, incorporating 47 new pathological entities and significant revisions to diagnostic criteria.",c:"Health",src:"WHO IARC",r:"France"},
+    {t:"Multiplexed IHC Transforms Tumour Microenvironment Analysis",s:"Opal Multiplex technology enables simultaneous analysis of 7 IHC markers on a single slide, generating a detailed map of the tumour microenvironment.",c:"Technology",src:"Journal of Pathology",r:"USA"},
+    {t:"Robotic FNAC of Deep-Seated Tumours Achieves 99% Accuracy",s:"An ultrasound-guided robotic system performs FNAC of deep lymph nodes and masses with 99% needle guidance accuracy and minimal complications.",c:"Technology",src:"Endoscopy International",r:"Japan"},
+    {t:"Novel IHC Marker TRPS1 Identifies Triple-Negative Breast Cancer",s:"TRPS1 protein demonstrated 97% sensitivity in distinguishing triple-negative breast carcinoma from other adenocarcinomas in a multi-centre study.",c:"Discovery",src:"Am. J. Surgical Pathology",r:"Australia"},
+    {t:"Digital Pathology Accelerates Diagnosis in Gulf Region Remote Areas",s:"A UAE-Saudi joint initiative deploys digital slide sharing platforms enabling remote expert pathology consultation for regional hospitals.",c:"Health",src:"Dubai Health Authority",r:"UAE"},
+    {t:"Novel FISH Probes Detect Triple-Hit Lymphoma Rearrangements",s:"Multi-colour FISH probes developed for simultaneous MYC/BCL2/BCL6 detection in a single session with 100% diagnostic accuracy.",c:"Discovery",src:"Blood Journal",r:"UK"},
+    {t:"AI Algorithm Predicts Chemotherapy Response from Routine H&E Slides",s:"An MIT model predicts colorectal cancer response to FOLFOX from routine H&E slides, eliminating the need for costly genomic testing.",c:"Research",src:"Nature Cancer",r:"USA"},
+    {t:"Microwave Tissue Fixation Cuts Processing Time to Two Hours",s:"Microwave-assisted fixation matches formalin quality while reducing small biopsy fixation time from 24 hours to just two hours.",c:"Technology",src:"Journal of Histotechnology",r:"France"},
+    {t:"Saudi Arabia Launches Official Digital Tumour Atlas",s:"The Ministry of Health launched a digital database of over 50,000 annotated histological slides covering the most prevalent tumour types in the region.",c:"Health",src:"Saudi MoH",r:"Saudi Arabia"},
+    {t:"CSF Cytology Detects Tumour Recurrence Six Months Before MRI",s:"cfDNA analysis from cerebrospinal fluid detects pituitary adenoma recurrence six months before it becomes visible on MRI scanning.",c:"Discovery",src:"Neuro-Oncology",r:"Germany"},
+    {t:"Digital IHC Redefines ER Scoring in Breast Cancer",s:"AI-based quantitative ER measurement proved more reproducible than visual human assessment in a large multi-centre validation study.",c:"Research",src:"Breast Cancer Research",r:"Netherlands"},
+    {t:"Jordan Mandates ISO 15189 Accreditation for Pathology Laboratories",s:"The Jordanian Accreditation Body announced that histopathology laboratories must obtain ISO 15189 accreditation by 2026.",c:"Health",src:"Jordan Medical Council",r:"Jordan"},
+  ]
+};
+
+const NBC = {
+  ar: {بحث:'nbr', تقنية:'nbt', اكتشاف:'nbd', صحة:'nbh'},
+  en: {Technology:'nbt', Discovery:'nbd', Research:'nbr', Health:'nbh'}
+};
+
+const NRS = 60;
+let nc, ns = NRS;
+
+function nShuffle(a) {
+  const b = [...a];
+  for (let i = b.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [b[i],b[j]]=[b[j],b[i]];
+  }
+  return b;
+}
+
+function nRender() {
+  const lang = currentLang;
+  const data = ND[lang];
+  const bmap = NBC[lang];
+  const items = nShuffle(data).slice(0, 9);
+  const timeStr = new Date().toLocaleTimeString(lang === 'ar' ? 'ar-EG' : 'en-GB');
+  document.getElementById('nGrid').innerHTML = items.map((n,i) => `
+    <div class="ncard" style="animation-delay:${i*.055}s">
+      <span class="nbadge ${bmap[n.c]||'nbr'}">${n.c}</span>
+      <div class="nct">${n.t}</div>
+      <div class="ncb">${n.s}</div>
+      <div class="ncf"><div class="ncs"><div class="ncd"></div>${n.src}</div><span>${n.r}</span></div>
+    </div>`).join('');
+  document.getElementById('nUpd').textContent = (lang==='ar'?'آخر تحديث: ':'Last update: ') + timeStr;
+}
+
+function nTimer() {
+  clearInterval(nc); ns = NRS;
+  document.getElementById('nNum').textContent = ns;
+  document.getElementById('nFill').style.width = '100%';
+  nc = setInterval(() => {
+    ns--;
+    document.getElementById('nNum').textContent = ns;
+    document.getElementById('nFill').style.width = (ns/NRS*100)+'%';
+    if (ns <= 0) { clearInterval(nc); nRefresh(); }
+  }, 1000);
+}
+
+function nRefresh() {
+  const ic = document.getElementById('nIcon'), bt = document.getElementById('nBtn');
+  ic.className = 'nsp'; bt.disabled = true;
+  setTimeout(() => { nRender(); ic.className=''; bt.disabled=false; nTimer(); }, 600);
+}
+
+nRender();
+nTimer();
+</script>
+</body>
+</html>
+
