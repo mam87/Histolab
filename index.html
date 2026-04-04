@@ -306,9 +306,65 @@ body.en .profile-name{font-family:'Playfair Display',serif}
 /* EN-specific overrides */
 body.en .ccard ul li::before{content:'▶'}
 body.en .ri:hover{transform:translateX(3px)}
+
+/* ══════ SCROLL PROGRESS BAR ══════ */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--amber),var(--amber2),var(--teal2));z-index:9998;transition:width .1s linear;border-radius:0 2px 2px 0}
+
+/* ══════ BACK TO TOP ══════ */
+#backTop{position:fixed;bottom:1.6rem;right:1.6rem;z-index:500;width:44px;height:44px;border-radius:12px;background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.35);color:var(--amber2);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .3s;backdrop-filter:blur(12px)}
+#backTop.show{opacity:1;pointer-events:auto}
+#backTop:hover{background:rgba(232,160,32,.25);transform:translateY(-3px);box-shadow:0 6px 20px rgba(232,160,32,.25)}
+body.en #backTop{right:auto;left:1.6rem}
+
+/* ══════ QUICK DASHBOARD ══════ */
+.qdash-section{position:relative;z-index:5;background:linear-gradient(180deg,rgba(11,15,24,.0),rgba(11,15,24,.95));padding:0 0 3rem}
+.qdash-wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.qdash-label{text-align:center;margin-bottom:1.8rem;padding-top:2.5rem}
+.qdash-label h3{font-family:'Cairo','Playfair Display',sans-serif;font-size:1.1rem;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:.7rem}
+.qdash-label h3::before,.qdash-label h3::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border2))}
+body.en .qdash-label h3{font-family:'Source Serif 4',serif;font-size:.9rem}
+.qdash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.85rem}
+.qcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1rem;text-align:center;text-decoration:none;transition:all .28s;cursor:pointer;display:block;position:relative;overflow:hidden}
+.qcard::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.qcard:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.55)}
+.qcard:hover::before{opacity:1}
+.qcard.qa::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.qcard.qt::before{background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.qcard.qr::before{background:linear-gradient(90deg,var(--rose),var(--rose2))}
+.qcard.qv::before{background:linear-gradient(90deg,var(--violet),var(--violet2))}
+.qcard:hover.qa{border-color:rgba(232,160,32,.45)}
+.qcard:hover.qt{border-color:rgba(26,158,143,.45)}
+.qcard:hover.qr{border-color:rgba(192,57,43,.45)}
+.qcard:hover.qv{border-color:rgba(124,77,255,.45)}
+.qcard-ico{font-size:2rem;margin-bottom:.65rem;display:block}
+.qcard-title{font-family:'Cairo',sans-serif;font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.3rem;display:block}
+body.en .qcard-title{font-family:'Source Serif 4',serif;font-size:.82rem}
+.qcard-sub{font-size:.72rem;color:var(--muted);display:block}
+.qcard-arrow{position:absolute;top:.75rem;left:.75rem;font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .25s}
+body.en .qcard-arrow{left:auto;right:.75rem}
+.qcard:hover .qcard-arrow{opacity:1}
+
+/* ══════ NAV ICONS ══════ */
+nav a{position:relative}
+nav a .nav-ico{font-size:.88rem;margin-left:.3rem}
+body.en nav a .nav-ico{margin-left:0;margin-right:.3rem}
+nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35rem .2rem;padding:.45rem .85rem}
+
+/* ══════ SECTION BADGE ══════ */
+.sec-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(232,160,32,.07);border:1px solid rgba(232,160,32,.18);padding:.22rem .75rem;border-radius:20px;font-size:.68rem;font-weight:700;color:var(--amber);margin-bottom:.7rem;letter-spacing:.5px}
+
+/* ══════ WORKFLOW TIMELINE ══════ */
+.wf-bar{display:flex;align-items:center;justify-content:center;gap:0;margin:2.5rem 0 1rem;overflow-x:auto;padding:.5rem 0}
+.wf-step{display:flex;align-items:center;flex-direction:column;gap:.3rem;min-width:70px}
+.wf-dot{width:36px;height:36px;border-radius:50%;background:rgba(232,160,32,.08);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .25s;flex-shrink:0}
+.wf-step:hover .wf-dot{border-color:var(--amber);background:rgba(232,160,32,.15);box-shadow:0 0 12px rgba(232,160,32,.3)}
+.wf-lbl{font-size:.62rem;color:var(--muted);text-align:center;white-space:nowrap}
+.wf-line{width:32px;height:1px;background:var(--border2);flex-shrink:0;margin-bottom:18px}
+@media(max-width:600px){.qdash-grid{grid-template-columns:repeat(3,1fr)}.qcard{padding:.9rem .7rem}.qcard-ico{font-size:1.6rem}}
 </style>
 </head>
 <body>
+<div id="scrollProgress"></div>
 <div class="amb amb1"></div>
 <div class="amb amb2"></div>
 <div class="dot-grid"></div>
@@ -340,16 +396,16 @@ body.en .ri:hover{transform:translateX(3px)}
   </div>
   <nav>
     <div class="nav-scroll">
-      <a href="#intro" class="active" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-      <a href="#basics" data-ar="الأساسيات" data-en="Basics">الأساسيات</a>
-      <a href="#histo" data-ar="الهيستوباثولوجي" data-en="Histopathology">الهيستوباثولوجي</a>
-      <a href="#cyto" data-ar="السيتولوجي" data-en="Cytology">السيتولوجي</a>
-      <a href="#stains" data-ar="الصبغات" data-en="Stains">الصبغات</a>
-      <a href="#protocol" data-ar="البروتوكولات" data-en="Protocols">البروتوكولات</a>
-      <a href="#safety" data-ar="السلامة" data-en="Safety">السلامة</a>
-      <a href="#references" data-ar="المراجع" data-en="References">المراجع</a>
-      <a href="#about" data-ar="👤 عن المتخصص" data-en="👤 About">👤 <span data-ar="عن المتخصص" data-en="About">عن المتخصص</span></a>
-      <a href="#news" style="color:var(--amber)" data-ar="🌐 أخبار" data-en="🌐 News">🌐 أخبار</a>
+      <a href="#intro" class="active"><span class="nav-ico">🏠</span><span data-ar="الرئيسية" data-en="Home">الرئيسية</span></a>
+      <a href="#basics"><span class="nav-ico">📖</span><span data-ar="الأساسيات" data-en="Basics">الأساسيات</span></a>
+      <a href="#histo"><span class="nav-ico">🔬</span><span data-ar="الهيستوباثولوجي" data-en="Histopathology">الهيستوباثولوجي</span></a>
+      <a href="#cyto"><span class="nav-ico">🧫</span><span data-ar="السيتولوجي" data-en="Cytology">السيتولوجي</span></a>
+      <a href="#stains"><span class="nav-ico">🎨</span><span data-ar="الصبغات" data-en="Stains">الصبغات</span></a>
+      <a href="#protocol"><span class="nav-ico">⚗️</span><span data-ar="البروتوكولات" data-en="Protocols">البروتوكولات</span></a>
+      <a href="#safety"><span class="nav-ico">⚠️</span><span data-ar="السلامة" data-en="Safety">السلامة</span></a>
+      <a href="#references"><span class="nav-ico">📚</span><span data-ar="المراجع" data-en="References">المراجع</span></a>
+      <a href="#about" class="nav-special"><span class="nav-ico">👤</span><span data-ar="عن المتخصص" data-en="About">عن المتخصص</span></a>
+      <a href="#news" class="nav-special" style="color:var(--amber)"><span class="nav-ico">🌐</span><span data-ar="أخبار" data-en="News">أخبار</span></a>
     </div>
   </nav>
 </header>
@@ -365,6 +421,84 @@ body.en .ri:hover{transform:translateX(3px)}
     <div class="hstat"><span class="n">20+</span><span class="l" data-ar="صبغة نسيجية" data-en="Histological Stains">صبغة نسيجية</span></div>
     <div class="hstat"><span class="n">18+</span><span class="l" data-ar="إجراء سلامة" data-en="Safety Procedures">إجراء سلامة</span></div>
     <div class="hstat"><span class="n">25+</span><span class="l" data-ar="مرجع علمي" data-en="Scientific References">مرجع علمي</span></div>
+  </div>
+</div>
+
+<!-- ══════ QUICK ACCESS DASHBOARD ══════ -->
+<div class="qdash-section">
+  <div class="qdash-wrap">
+    <div class="qdash-label">
+      <h3 data-ar="الوصول السريع" data-en="Quick Access">الوصول السريع</h3>
+    </div>
+    <div class="qdash-grid">
+      <a href="#basics" class="qcard qa" onclick="smoothNav('#basics')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">📖</span>
+        <span class="qcard-title" data-ar="الأساسيات" data-en="Basics">الأساسيات</span>
+        <span class="qcard-sub" data-ar="المفاهيم والتعريفات" data-en="Concepts & Definitions">المفاهيم والتعريفات</span>
+      </a>
+      <a href="#histo" class="qcard qa" onclick="smoothNav('#histo')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">🔬</span>
+        <span class="qcard-title" data-ar="الهيستوباثولوجي" data-en="Histopathology">الهيستوباثولوجي</span>
+        <span class="qcard-sub" data-ar="معالجة الأنسجة" data-en="Tissue Processing">معالجة الأنسجة</span>
+      </a>
+      <a href="#cyto" class="qcard qt" onclick="smoothNav('#cyto')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">🧫</span>
+        <span class="qcard-title" data-ar="السيتولوجي" data-en="Cytology">السيتولوجي</span>
+        <span class="qcard-sub" data-ar="فحص الخلايا" data-en="Cell Examination">فحص الخلايا</span>
+      </a>
+      <a href="#stains" class="qcard qt" onclick="smoothNav('#stains')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">🎨</span>
+        <span class="qcard-title" data-ar="الصبغات" data-en="Stains">الصبغات</span>
+        <span class="qcard-sub" data-ar="20+ صبغة نسيجية" data-en="20+ Histological Stains">20+ صبغة نسيجية</span>
+      </a>
+      <a href="#protocol" class="qcard qr" onclick="smoothNav('#protocol')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">⚗️</span>
+        <span class="qcard-title" data-ar="البروتوكولات" data-en="Protocols">البروتوكولات</span>
+        <span class="qcard-sub" data-ar="إجراءات معيارية" data-en="Standard Procedures">إجراءات معيارية</span>
+      </a>
+      <a href="#safety" class="qcard qr" onclick="smoothNav('#safety')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">⚠️</span>
+        <span class="qcard-title" data-ar="السلامة" data-en="Safety">السلامة المخبرية</span>
+        <span class="qcard-sub" data-ar="بروتوكولات الحماية" data-en="Protection Protocols">بروتوكولات الحماية</span>
+      </a>
+      <a href="#references" class="qcard qv" onclick="smoothNav('#references')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">📚</span>
+        <span class="qcard-title" data-ar="المراجع" data-en="References">المراجع العلمية</span>
+        <span class="qcard-sub" data-ar="25+ مرجع علمي" data-en="25+ Scientific References">25+ مرجع علمي</span>
+      </a>
+      <a href="#news" class="qcard qv" onclick="smoothNav('#news')">
+        <span class="qcard-arrow">←</span>
+        <span class="qcard-ico">🌐</span>
+        <span class="qcard-title" data-ar="آخر الأبحاث" data-en="Latest Research">آخر الأبحاث</span>
+        <span class="qcard-sub" data-ar="أخبار محدّثة" data-en="Updated News">أخبار محدّثة</span>
+      </a>
+    </div>
+
+    <!-- Workflow Timeline -->
+    <div class="wf-bar">
+      <div class="wf-step"><div class="wf-dot">📥</div><div class="wf-lbl" data-ar="استلام العينة" data-en="Receipt">استلام العينة</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">🧪</div><div class="wf-lbl" data-ar="التثبيت" data-en="Fixation">التثبيت</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">✂️</div><div class="wf-lbl" data-ar="Grossing" data-en="Grossing">Grossing</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">⚙️</div><div class="wf-lbl" data-ar="المعالجة" data-en="Processing">المعالجة</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">🧲</div><div class="wf-lbl" data-ar="التضمين" data-en="Embedding">التضمين</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">🔪</div><div class="wf-lbl" data-ar="الميكروتوم" data-en="Microtomy">الميكروتوم</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">🎨</div><div class="wf-lbl" data-ar="الصبغ" data-en="Staining">الصبغ</div></div>
+      <div class="wf-line"></div>
+      <div class="wf-step"><div class="wf-dot">🔬</div><div class="wf-lbl" data-ar="الفحص" data-en="Exam">الفحص</div></div>
+    </div>
   </div>
 </div>
 
@@ -1120,7 +1254,35 @@ function nRefresh() {
 
 nRender();
 nTimer();
+
+// ── SCROLL PROGRESS BAR ──
+const spBar = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+  spBar.style.width = pct + '%';
+
+  // Back to top button
+  const bt = document.getElementById('backTop');
+  if (scrollTop > 400) { bt.classList.add('show'); }
+  else { bt.classList.remove('show'); }
+}, { passive: true });
+
+// ── BACK TO TOP ──
+document.getElementById('backTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── SMOOTH NAV HELPER ──
+function smoothNav(selector) {
+  const t = document.querySelector(selector);
+  if (t) { setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 10); }
+}
 </script>
+
+<!-- Back to Top Button -->
+<button id="backTop" title="العودة للأعلى" aria-label="Back to top">↑</button>
 </body>
 </html>
 
