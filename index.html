@@ -4,6 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Histopathology & Cytology Lab | مختبر الهيستوباثولوجي والسيتولوجي</title>
+<meta name="description" content="مرجع عربي-إنجليزي شامل لفنيي مختبرات الهيستوباثولوجي والسيتولوجي: معالجة الأنسجة، الصبغات، IHC، أنظمة Bethesda، السلامة، وآخر المستجدات الموثّقة."/>
+<meta name="theme-color" content="#06070c"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Histopathology & Cytology Lab | مختبر الهيستوباثولوجي والسيتولوجي"/>
+<meta property="og:description" content="A bilingual reference for histopathology & cytology laboratory staff — processing, stains, IHC, reporting systems, safety and verified updates."/>
+<meta property="og:url" content="https://mam87.github.io/histolab/"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -210,6 +217,9 @@ body.en .nbl h3{font-family:'Playfair Display',serif}
 .ncf{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #192840;padding-top:.58rem;font-size:.69rem;color:#405060}
 .ncs{display:flex;align-items:center;gap:.28rem}
 .ncd{width:5px;height:5px;border-radius:50%;background:var(--amber2)}
+.ncard a{color:var(--teal2);text-decoration:none}.ncard a:hover{text-decoration:underline}
+.ndate{font-size:.68rem;color:var(--amber2);font-weight:700;margin-bottom:.4rem;display:block}
+.nnote{font-size:.72rem;color:var(--muted);margin-top:1.2rem;line-height:1.7}
 
 /* ══════ FOOTER ══════ */
 footer{position:relative;z-index:5;background:rgba(4,5,8,.99);border-top:1px solid var(--border2);padding:2.8rem 1.5rem 1.5rem}
@@ -418,9 +428,9 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
   <p data-ar="مرجع علمي متكامل يغطي تقنيات معالجة الأنسجة، تحضير الشرائح، الصبغات التشخيصية، والفحص الخلوي للكوادر المخبرية المتخصصة" data-en="A comprehensive scientific reference covering tissue processing techniques, slide preparation, diagnostic stains, and cytological examination for specialized laboratory staff">مرجع علمي متكامل يغطي تقنيات معالجة الأنسجة، تحضير الشرائح، الصبغات التشخيصية، والفحص الخلوي للكوادر المخبرية المتخصصة</p>
   <div class="hstats">
     <div class="hstat"><span class="n">12+</span><span class="l" data-ar="تقنية تشخيصية" data-en="Diagnostic Techniques">تقنية تشخيصية</span></div>
-    <div class="hstat"><span class="n">20+</span><span class="l" data-ar="صبغة نسيجية" data-en="Histological Stains">صبغة نسيجية</span></div>
+    <div class="hstat"><span class="n">13+</span><span class="l" data-ar="صبغة نسيجية" data-en="Histological Stains">صبغة نسيجية</span></div>
     <div class="hstat"><span class="n">18+</span><span class="l" data-ar="إجراء سلامة" data-en="Safety Procedures">إجراء سلامة</span></div>
-    <div class="hstat"><span class="n">25+</span><span class="l" data-ar="مرجع علمي" data-en="Scientific References">مرجع علمي</span></div>
+    <div class="hstat"><span class="n">18</span><span class="l" data-ar="مرجع علمي" data-en="Scientific References">مرجع علمي</span></div>
   </div>
 </div>
 
@@ -453,7 +463,7 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
         <span class="qcard-arrow">←</span>
         <span class="qcard-ico">🎨</span>
         <span class="qcard-title" data-ar="الصبغات" data-en="Stains">الصبغات</span>
-        <span class="qcard-sub" data-ar="20+ صبغة نسيجية" data-en="20+ Histological Stains">20+ صبغة نسيجية</span>
+        <span class="qcard-sub" data-ar="13+ صبغة + IHC" data-en="13+ Stains + IHC">13+ صبغة + IHC</span>
       </a>
       <a href="#protocol" class="qcard qr" onclick="smoothNav('#protocol')">
         <span class="qcard-arrow">←</span>
@@ -471,13 +481,13 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
         <span class="qcard-arrow">←</span>
         <span class="qcard-ico">📚</span>
         <span class="qcard-title" data-ar="المراجع" data-en="References">المراجع العلمية</span>
-        <span class="qcard-sub" data-ar="25+ مرجع علمي" data-en="25+ Scientific References">25+ مرجع علمي</span>
+        <span class="qcard-sub" data-ar="18 مرجعاً علمياً" data-en="18 Scientific References">18 مرجعاً علمياً</span>
       </a>
       <a href="#news" class="qcard qv" onclick="smoothNav('#news')">
         <span class="qcard-arrow">←</span>
         <span class="qcard-ico">🌐</span>
-        <span class="qcard-title" data-ar="آخر الأبحاث" data-en="Latest Research">آخر الأبحاث</span>
-        <span class="qcard-sub" data-ar="أخبار محدّثة" data-en="Updated News">أخبار محدّثة</span>
+        <span class="qcard-title" data-ar="آخر المستجدات" data-en="Latest Updates">آخر المستجدات</span>
+        <span class="qcard-sub" data-ar="مستجدات موثّقة 2024–2026" data-en="Verified 2024–2026 updates">مستجدات موثّقة 2024–2026</span>
       </a>
     </div>
 
@@ -608,7 +618,7 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
         <tr>
           <td><strong data-ar="1. التثبيت" data-en="1. Fixation">1. التثبيت</strong><em data-ar="Fixation" data-en="Fixation">Fixation</em></td>
           <td data-ar="10% Neutral Buffered Formalin" data-en="10% Neutral Buffered Formalin">10% Neutral Buffered Formalin</td>
-          <td data-ar="6–48 ساعة (حسب حجم العينة)" data-en="6–48 hours (depending on specimen size)">6–48 ساعة</td>
+          <td data-ar="6–48 ساعة حسب الحجم؛ عينات الثدي (ER/PR/HER2): 6–72 ساعة وزمن الإقفار البارد ≤1 ساعة" data-en="6–48 h by size; breast (ER/PR/HER2): 6–72 h, cold ischaemia ≤1 h">6–48 ساعة حسب الحجم؛ عينات الثدي (ER/PR/HER2): 6–72 ساعة وزمن الإقفار البارد ≤1 ساعة</td>
           <td data-ar="إيقاف التحلل الخلوي، الحفاظ على البنية المورفولوجية" data-en="Halt autolysis and preserve tissue morphology">إيقاف التحلل الخلوي</td>
         </tr>
         <tr>
@@ -698,8 +708,8 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
       <ul>
         <li data-ar="التقليدية: مسحة مباشرة على شريحة — صبغة Pap" data-en="Conventional: direct smear on glass slide — Pap stain">التقليدية: مسحة مباشرة — صبغة Pap</li>
         <li data-ar="السائلة (LBC): ThinPrep أو SurePath" data-en="Liquid-based (LBC): ThinPrep or SurePath">السائلة (LBC): ThinPrep أو SurePath</li>
-        <li data-ar="تصنيف Bethesda 2014 للتقارير" data-en="The Bethesda System 2014 for reporting">تصنيف Bethesda 2014 للتقارير</li>
-        <li data-ar="NILM, ASC-US, LSIL, HSIL, AGC, Carcinoma" data-en="NILM, ASC-US, LSIL, HSIL, AGC, Carcinoma">NILM · ASC-US · LSIL · HSIL · AGC</li>
+        <li data-ar="نظام Bethesda 2014 للتقارير (أطلس الطبعة الثالثة 2015)" data-en="The Bethesda System 2014 for reporting (3rd ed. atlas, 2015)">نظام Bethesda 2014 للتقارير (أطلس الطبعة الثالثة 2015)</li>
+        <li data-ar="NILM · ASC-US · ASC-H · LSIL · HSIL · AGC · AIS · Carcinoma" data-en="NILM · ASC-US · ASC-H · LSIL · HSIL · AGC · AIS · Carcinoma">NILM · ASC-US · ASC-H · LSIL · HSIL · AGC · AIS · Carcinoma</li>
       </ul>
       <span class="pill pt" data-ar="🎗️ تشخيص سرطاني" data-en="🎗️ Cancer Screening">🎗️ تشخيص سرطاني</span>
     </div>
@@ -711,7 +721,7 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
         <li data-ar="الغدة الدرقية، الثدي، الليمفاوية، الغدة النكفية" data-en="Thyroid, breast, lymph nodes, parotid gland">الغدة الدرقية، الثدي، الليمفاوية</li>
         <li data-ar="تقييم أولي على الموقع (ROSE)" data-en="Rapid on-site evaluation (ROSE)">تقييم أولي على الموقع (ROSE)</li>
         <li data-ar="مسحات، سيتوسبين، cell block" data-en="Smears, cytospin, cell block">مسحات، سيتوسبين، cell block</li>
-        <li data-ar="تصنيف Bethesda للغدة الدرقية (TBSRTC)" data-en="Bethesda System for thyroid (TBSRTC)">Bethesda للغدة الدرقية (TBSRTC)</li>
+        <li data-ar="TBSRTC الطبعة الثالثة (2023): 6 فئات؛ AUS بدل FLUS، وFN بدل SFN" data-en="TBSRTC 3rd ed. (2023): 6 categories; AUS replaces FLUS, FN replaces SFN">TBSRTC الطبعة الثالثة (2023): 6 فئات؛ AUS بدل FLUS، وFN بدل SFN</li>
       </ul>
     </div>
     <div class="ccard rose">
@@ -741,9 +751,11 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
       <ul>
         <li><strong>NILM</strong> — <span data-ar="لا تغيرات خبيثة" data-en="Negative for intraepithelial lesion">لا تغيرات خبيثة</span></li>
         <li><strong>ASC-US</strong> — <span data-ar="خلايا حرشفية غير نمطية — غير محددة" data-en="Atypical squamous cells of undetermined significance">خلايا غير نمطية — غير محددة</span></li>
-        <li><strong>LSIL</strong> — <span data-ar="ضايقة داخل الظهارة درجة منخفضة" data-en="Low-grade squamous intraepithelial lesion">ضايقة درجة منخفضة</span></li>
-        <li><strong>HSIL</strong> — <span data-ar="ضايقة درجة عالية" data-en="High-grade squamous intraepithelial lesion">ضايقة درجة عالية</span></li>
+        <li><strong>LSIL</strong> — <span data-ar="آفة حرشفية داخل الظهارة منخفضة الدرجة" data-en="Low-grade squamous intraepithelial lesion">آفة حرشفية داخل الظهارة منخفضة الدرجة</span></li>
+        <li><strong>ASC-H</strong> — <span data-ar="خلايا حرشفية غير نمطية لا يمكن استبعاد HSIL" data-en="Atypical squamous cells, cannot exclude HSIL">خلايا حرشفية غير نمطية لا يمكن استبعاد HSIL</span></li>
+        <li><strong>HSIL</strong> — <span data-ar="آفة حرشفية داخل الظهارة عالية الدرجة" data-en="High-grade squamous intraepithelial lesion">آفة حرشفية داخل الظهارة عالية الدرجة</span></li>
         <li><strong>AGC</strong> — <span data-ar="خلايا غدية غير نمطية" data-en="Atypical glandular cells">خلايا غدية غير نمطية</span></li>
+        <li><strong>AIS</strong> — <span data-ar="سرطانة غدية موضعية في باطن عنق الرحم" data-en="Endocervical adenocarcinoma in situ">سرطانة غدية موضعية في باطن عنق الرحم</span></li>
         <li><strong>Carcinoma</strong> — <span data-ar="سرطانة" data-en="Carcinoma">سرطانة</span></li>
       </ul>
     </div>
@@ -859,7 +871,23 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
         <li data-ar="PSA: سرطان البروستاتا" data-en="PSA: prostate carcinoma">PSA: سرطان البروستاتا</li>
         <li data-ar="S-100: الميلانوما وأورام الأعصاب" data-en="S-100: melanoma and nerve sheath tumours">S-100: الميلانوما والأعصاب</li>
         <li data-ar="p53 / p16: جينات القمع الورمي" data-en="p53 / p16: tumour suppressor genes">p53 / p16: جينات القمع الورمي</li>
+        <li data-ar="GATA3 / TRPS1: منشأ ثديي (بما فيه الثلاثي السلبي)" data-en="GATA3 / TRPS1: breast origin (incl. triple-negative)">GATA3 / TRPS1: منشأ ثديي (بما فيه الثلاثي السلبي)</li>
+        <li data-ar="SOX10 / PRAME: الآفات الميلانينية" data-en="SOX10 / PRAME: melanocytic lesions">SOX10 / PRAME: الآفات الميلانينية</li>
+        <li data-ar="INSM1: الأورام العصبية الصماوية" data-en="INSM1: neuroendocrine neoplasms">INSM1: الأورام العصبية الصماوية</li>
+        <li data-ar="MLH1/PMS2/MSH2/MSH6: فحص عدم إصلاح التطابق (MMR)" data-en="MLH1/PMS2/MSH2/MSH6: mismatch-repair (MMR) screening">MLH1/PMS2/MSH2/MSH6: فحص عدم إصلاح التطابق (MMR)</li>
       </ul>
+    </div>
+    <div class="ccard rose">
+      <span class="ci">💊</span>
+      <h4 data-ar="IHC التنبؤي والتشخيص المرافق (محدث)" data-en="Predictive IHC & Companion Diagnostics (updated)">IHC التنبؤي والتشخيص المرافق (محدث)</h4>
+      <ul>
+        <li data-ar="HER2-low: ‏IHC 1+ أو 2+/ISH سلبي" data-en="HER2-low: IHC 1+ or 2+/ISH-negative">HER2-low: ‏IHC 1+ أو 2+/ISH سلبي</li>
+        <li data-ar="HER2-ultralow: ‏IHC 0 مع تلوّن غشائي ضعيف (موافقة FDA يناير 2025)" data-en="HER2-ultralow: IHC 0 with membrane staining (FDA, Jan 2025)">HER2-ultralow: ‏IHC 0 مع تلوّن غشائي ضعيف (موافقة FDA يناير 2025)</li>
+        <li data-ar="CLDN18.2 لسرطان المعدة/الوصل المريئي (VENTANA CLDN18 43-14A — أكتوبر 2024)" data-en="CLDN18.2 in gastric/GEJ cancer (VENTANA CLDN18 43-14A — Oct 2024)">CLDN18.2 لسرطان المعدة/الوصل المريئي (VENTANA CLDN18 43-14A — أكتوبر 2024)</li>
+        <li data-ar="PD-L1 (‏22C3 / SP263 / SP142) حسب الدواء ونظام التقييم (TPS / CPS)" data-en="PD-L1 (22C3 / SP263 / SP142) — assay and score (TPS / CPS) depend on the drug">PD-L1 (‏22C3 / SP263 / SP142) حسب الدواء ونظام التقييم (TPS / CPS)</li>
+        <li data-ar="ER/PR/HER2 وفق إرشادات ASCO/CAP (تحديث HER2 لعام 2023)" data-en="ER/PR/HER2 per ASCO/CAP guidelines (HER2 update 2023)">ER/PR/HER2 وفق إرشادات ASCO/CAP (تحديث HER2 لعام 2023)</li>
+      </ul>
+      <span class="pill pr" data-ar="يؤثر مباشرة على العلاج" data-en="Directly guides therapy">يؤثر مباشرة على العلاج</span>
     </div>
   </div>
 </div>
@@ -891,7 +919,7 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
       <div class="sl">
         <div class="step"><div class="snum">1</div><div class="sc"><h5 data-ar="الثبيت الفوري" data-en="Immediate Fixation">الثبيت الفوري</h5><p data-ar="غمس الشريحة في 95% كحول إيثيلي فور الانتهاء من المسحة مباشرة. تأخر 5 ثوانٍ يسبب جفافاً يشوه الخلايا." data-en="Immerse slide in 95% ethyl alcohol immediately after smearing. Delay of just 5 seconds causes drying artefacts.">غمس فوري في 95% كحول. تأخر 5 ثوانٍ يشوه الخلايا.</p></div></div>
         <div class="step"><div class="snum">2</div><div class="sc"><h5 data-ar="الإماهة التدريجية" data-en="Progressive Rehydration">الإماهة التدريجية</h5><p data-ar="95% → 80% → 70% → 50% → ماء مقطر. كل 10 تغطيسات (dips) لكل خطوة." data-en="95% → 80% → 70% → 50% → distilled water. Ten dips at each step.">95%→50%→ماء مقطر. 10 تغطيسات لكل خطوة.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sc"><h5 data-ar="هيماتوكسيلين هاريس" data-en="Harris Haematoxylin">هيماتوكسيلين هاريس</h5><p data-ar="3–5 دقائق → غسيل → HCl 0.25% دقيقة (تمييز) → ماء جاري 5 دق (أزرقة نووية)." data-en="3–5 min → wash → 0.25% HCl 1 min (differentiation) → running water 5 min (nuclear bluing).">3–5 دق → تمييز HCl → أزرقة نووية بالماء الجاري.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sc"><h5 data-ar="هيماتوكسيلين هاريس" data-en="Harris Haematoxylin">هيماتوكسيلين هاريس</h5><p data-ar="3–5 دقائق → غسيل → HCl 0.25% بضع غمسات سريعة (تمييز) → ماء جاري 5 دق (أزرقة نووية)." data-en="3–5 min → wash → 0.25% HCl, a few quick dips (differentiation) → running water 5 min (nuclear bluing).">3–5 دقائق → غسيل → HCl 0.25% بضع غمسات سريعة (تمييز) → ماء جاري 5 دق (أزرقة نووية).</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sc"><h5 data-ar="OG-6 ثم EA-65" data-en="OG-6 then EA-65">OG-6 ثم EA-65</h5><p data-ar="OG-6 (كيراتين) 1.5 دق → EA-65 (سيتوبلازم) 3 دق. تمييز كحولي بين الصبغتين." data-en="OG-6 (keratin) 1.5 min → EA-65 (cytoplasm) 3 min. Alcoholic differentiation between stains.">OG-6 للكيراتين → EA-65 للسيتوبلازم مع تمييز كحولي.</p></div></div>
         <div class="step"><div class="snum">5</div><div class="sc"><h5 data-ar="التجفيف والتغطية" data-en="Dehydration & Coverslipping">التجفيف والتغطية</h5><p data-ar="كحول 95%→100% → زيلين → DPX. النتيجة: نواة زرقاء، سيتوبلازم أخضر/وردي/برتقالي." data-en="95%→100% alcohol → xylene → DPX. Result: blue nucleus, green/pink/orange cytoplasm.">كحول→زيلين→DPX. نواة زرقاء، سيتوبلازم أخضر/وردي.</p></div></div>
       </div>
@@ -919,10 +947,10 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
       </div>
     </div>
     <div class="sgr">
-      <div class="si2"><span class="ico">☣️</span><h5 data-ar="الفورمالين — مسرطن IARC مجموعة 1" data-en="Formalin — IARC Group 1 Carcinogen">الفورمالين — مسرطن IARC</h5><p data-ar="الفورمالدهيد مسرطن IARC مجموعة (1). العمل داخل خزانة شفط إلزامياً. TLV لا يتجاوز 0.3 ppm." data-en="Formaldehyde is an IARC Group 1 carcinogen. Work inside fume hood is mandatory. TLV must not exceed 0.3 ppm.">مسرطن مجموعة 1. العمل داخل خزانة شفط. TLV ≤0.3 ppm.</p></div>
+      <div class="si2"><span class="ico">☣️</span><h5 data-ar="الفورمالين — مسرطن IARC مجموعة 1" data-en="Formalin — IARC Group 1 Carcinogen">الفورمالين — مسرطن IARC</h5><p data-ar="الفورمالدهيد مسرطن IARC مجموعة (1). العمل داخل خزانة شفط إلزامي. حدود ACGIH: ‏TLV-TWA ‏0.1 ppm و STEL ‏0.3 ppm؛ حدود OSHA: ‏PEL ‏0.75 ppm و STEL ‏2 ppm." data-en="Formaldehyde is an IARC Group 1 carcinogen. Work inside a fume hood is mandatory. ACGIH: TLV-TWA 0.1 ppm, STEL 0.3 ppm; OSHA: PEL 0.75 ppm, STEL 2 ppm.">الفورمالدهيد مسرطن IARC مجموعة (1). العمل داخل خزانة شفط إلزامي. حدود ACGIH: ‏TLV-TWA ‏0.1 ppm و STEL ‏0.3 ppm؛ حدود OSHA: ‏PEL ‏0.75 ppm و STEL ‏2 ppm.</p></div>
       <div class="si2"><span class="ico">🔥</span><h5 data-ar="الزيلين والكحول — قابلان للاشتعال" data-en="Xylene & Alcohol — Flammable">الزيلين والكحول — قابلان للاشتعال</h5><p data-ar="تخزين في خزانات مانعة للانفجار. لا مصادر اشتعال في منطقة الصبغ. طفاية CO₂ على مسافة ≤10 أمتار." data-en="Store in explosion-proof cabinets. No ignition sources in staining area. CO₂ extinguisher within 10 metres.">خزانات مانعة للانفجار. لا لهب بالقرب. طفاية CO₂ قريبة.</p></div>
       <div class="si2"><span class="ico">🥼</span><h5 data-ar="معدات الحماية الشخصية" data-en="Personal Protective Equipment (PPE)">معدات الحماية الشخصية</h5><p data-ar="معطف كيميائي، قفازات نيتريل مزدوجة، نظارات واقية، قناع نصفي مع فلتر مشتركات عضوية (OV)." data-en="Chemical-resistant lab coat, double nitrile gloves, goggles, half-mask respirator with organic vapour (OV) filter.">معطف كيميائي + قفازات نيتريل + نظارة + قناع OV.</p></div>
-      <div class="si2"><span class="ico">🧹</span><h5 data-ar="النفايات الكيميائية — ترميز الألوان" data-en="Chemical Waste — Colour Coding">النفايات الكيميائية</h5><p data-ar="الفورمالين: حاوية حمراء مُوسَمة. الزيلين/الكحول: حاوية صفراء. حظر الصرف في المجاري. شركة ترحيل معتمدة." data-en="Formalin: labelled red container. Xylene/alcohol: yellow container. No drain disposal. Licensed waste contractor required.">فورمالين ← أحمر | زيلين ← أصفر. حظر صرف المجاري.</p></div>
+      <div class="si2"><span class="ico">🧹</span><h5 data-ar="النفايات الكيميائية — ترميز الألوان" data-en="Chemical Waste — Colour Coding">النفايات الكيميائية</h5><p data-ar="الفورمالين والزيلين/الكحول في حاويات منفصلة ومُوسَمة (ألوان الحاويات حسب أنظمة الجهة المحلية). حظر الصرف في المجاري. شركة ترحيل معتمدة." data-en="Formalin and xylene/alcohol in separate labelled containers (colour codes per local regulations). No drain disposal. Licensed waste contractor required.">فورمالين ← أحمر | زيلين ← أصفر. حظر صرف المجاري.</p></div>
       <div class="si2"><span class="ico">🩸</span><h5 data-ar="مخاطر التعرض للدم — احتياطات شاملة" data-en="Blood Exposure — Universal Precautions">مخاطر الدم — احتياطات شاملة</h5><p data-ar="جميع عينات النسيج تُعامَل كمعدية (Universal Precautions). قفازات عند التقطيع. أي وخز — بروتوكول إبلاغ فوري." data-en="All tissue specimens treated as infectious (Universal Precautions). Gloves during grossing. Any needlestick — immediate incident reporting.">كل عينة معدية. قفازات دائماً. وخز ← إبلاغ فوري.</p></div>
       <div class="si2"><span class="ico">✂️</span><h5 data-ar="شفرات الميكروتوم — أدوات حادة" data-en="Microtome Blades — Sharps Safety">شفرات الميكروتوم</h5><p data-ar="لا إعادة الغطاء يدوياً. تغيير الشفرة بملقط أو ماسك مخصص فقط. الشفرات المستعملة في حاويات حادة مُوسَمة." data-en="Never recap blades manually. Change blade with forceps or dedicated holder only. Used blades in labelled sharps containers only.">تغيير بالملقط فقط. حاويات حادة للشفرات المستعملة.</p></div>
       <div class="si2"><span class="ico">🌡️</span><h5 data-ar="حرارة عالية — محطة التضمين" data-en="Heat Hazard — Embedding Station">حرارة عالية — محطة التضمين</h5><p data-ar="الشمع المنصهر 60–65°C. قفازات مقاومة للحرارة إلزامية. لا لمس مباشر للأسطح الساخنة أبداً." data-en="Molten wax at 60–65°C. Heat-resistant gloves are mandatory. Never touch hot surfaces directly.">شمع 60–65°C. قفازات حرارية إلزامية.</p></div>
@@ -974,14 +1002,17 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
     </div>
     <div class="profile-info">
       <h2 class="profile-name" data-ar="مأمون السعودي" data-en="Mamoun Al-Saudi">مأمون السعودي</h2>
-      <p class="profile-title" data-ar="أخصائي المختبرات الطبية | هيستوباثولوجي وسيتولوجي" data-en="Medical Laboratory Specialist | Histopathology & Cytology">أخصائي المختبرات الطبية | هيستوباثولوجي وسيتولوجي</p>
-      <p class="profile-bio" data-ar="متخصص في مجال علم الأنسجة المرضية والسيتولوجي التشخيصي، يسعى إلى نشر المعرفة العلمية المتخصصة بين الكوادر المخبرية في العالم العربي من خلال مرجع علمي موثوق وشامل." data-en="A specialist in histopathology and diagnostic cytology, dedicated to disseminating specialised scientific knowledge among laboratory professionals across the Arab world through a comprehensive and trusted scientific reference.">متخصص في مجال علم الأنسجة المرضية والسيتولوجي التشخيصي، يسعى إلى نشر المعرفة العلمية المتخصصة بين الكوادر المخبرية في العالم العربي من خلال مرجع علمي موثوق وشامل.</p>
+      <p class="profile-title" data-ar="مشرف مختبر الهيستوباثولوجي والسيتولوجي | مدير مختبر طبي مرخّص" data-en="Histopathology & Cytology Laboratory Supervisor | Licensed Medical Laboratory Director">مشرف مختبر الهيستوباثولوجي والسيتولوجي | مدير مختبر طبي مرخّص</p>
+      <p class="profile-bio" data-ar="أخصائي مختبرات طبية بخبرة 17 عاماً، حاصل على ماجستير علوم المختبرات الطبية، ومشرف مختبر الهيستوباثولوجي والسيتولوجي في مستشفى الجامعة الأردنية. مُقيّم جودة معتمد لدى مجلس اعتماد المؤسسات الصحية (HCAC)، وخبير في معيار ISO 15189:2022 ومتطلبات CAP وJCI، وشغل منصب رئيس قسم الجودة في مختبرات مستشفى الجامعة الأردنية (2019–2022). يسعى إلى نشر المعرفة العلمية المتخصصة بين الكوادر المخبرية في العالم العربي." data-en="Medical laboratory scientist with 17 years of experience and an MSc in Medical Laboratory Science; Histopathology & Cytology Laboratory Supervisor at Jordan University Hospital. HCAC-accredited quality surveyor with deep expertise in ISO 15189:2022, CAP and JCI requirements, and former Chief Quality Officer of Jordan University Hospital Laboratories (2019–2022). Dedicated to sharing specialised knowledge with laboratory professionals across the Arab world.">أخصائي مختبرات طبية بخبرة 17 عاماً، حاصل على ماجستير علوم المختبرات الطبية، ومشرف مختبر الهيستوباثولوجي والسيتولوجي في مستشفى الجامعة الأردنية. مُقيّم جودة معتمد لدى مجلس اعتماد المؤسسات الصحية (HCAC)، وخبير في معيار ISO 15189:2022 ومتطلبات CAP وJCI، وشغل منصب رئيس قسم الجودة في مختبرات مستشفى الجامعة الأردنية (2019–2022). يسعى إلى نشر المعرفة العلمية المتخصصة بين الكوادر المخبرية في العالم العربي.</p>
       <div class="profile-tags">
         <span class="ptag" data-ar="الهيستوباثولوجي" data-en="Histopathology">الهيستوباثولوجي</span>
         <span class="ptag" data-ar="السيتولوجي" data-en="Cytology">السيتولوجي</span>
         <span class="ptag" data-ar="الصبغات النسيجية" data-en="Histological Stains">الصبغات النسيجية</span>
         <span class="ptag" data-ar="IHC" data-en="IHC">IHC</span>
         <span class="ptag" data-ar="سلامة المختبر" data-en="Lab Safety">سلامة المختبر</span>
+        <span class="ptag" data-ar="ISO 15189:2022" data-en="ISO 15189:2022">ISO 15189:2022</span>
+        <span class="ptag" data-ar="مُقيّم HCAC" data-en="HCAC Surveyor">مُقيّم HCAC</span>
+        <span class="ptag" data-ar="إدارة الجودة" data-en="Quality Management">إدارة الجودة</span>
       </div>
       <div class="profile-contacts">
         <a href="https://wa.me/962799146795" target="_blank" class="pcontact pcontact-wa">
@@ -1013,10 +1044,10 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
     </div>
   </div>
   <div class="rl">
-    <div class="ri"><span class="rn">[1]</span><div class="rb"><strong>Bancroft, J.D. & Layton, C. (2019).</strong> <em>Bancroft's Theory and Practice of Histological Techniques</em>, 8th Ed. Elsevier.<br/><span class="rtag" style="background:rgba(232,160,32,.1);color:var(--amber2);border:1px solid rgba(232,160,32,.22);" data-ar="📖 المرجع الأساسي في الهيستوباثولوجي" data-en="📖 Primary Histopathology Reference">📖 المرجع الأساسي في الهيستوباثولوجي</span></div></div>
+    <div class="ri"><span class="rn">[1]</span><div class="rb"><strong>Suvarna, S.K., Layton, C. & Bancroft, J.D. (eds) (2019).</strong> <em>Bancroft's Theory and Practice of Histological Techniques</em>, 8th Ed. Elsevier.<br/><span class="rtag" style="background:rgba(232,160,32,.1);color:var(--amber2);border:1px solid rgba(232,160,32,.22);" data-ar="📖 المرجع الأساسي في الهيستوباثولوجي" data-en="📖 Primary Histopathology Reference">📖 المرجع الأساسي في الهيستوباثولوجي</span></div></div>
     <div class="ri"><span class="rn">[2]</span><div class="rb"><strong>DeMay, R.M. (2012).</strong> <em>The Art & Science of Cytopathology</em>, 2nd Ed. ASCP Press.<br/><span class="rtag" style="background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.22);" data-ar="📖 المرجع الأساسي في السيتولوجي" data-en="📖 Primary Cytopathology Reference">📖 المرجع الأساسي في السيتولوجي</span></div></div>
-    <div class="ri"><span class="rn">[3]</span><div class="rb"><strong>WHO Classification of Tumours (Blue Books), 5th Ed. (2019–2026).</strong> IARC Press, Lyon.<br/><a href="https://tumourclassification.iarc.who.int" target="_blank">🔗 tumourclassification.iarc.who.int</a><br/><span class="rtag" style="background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.22);" data-ar="🌐 التصنيف العالمي للأورام" data-en="🌐 WHO Global Tumour Classification">🌐 التصنيف العالمي للأورام</span></div></div>
-    <div class="ri"><span class="rn">[4]</span><div class="rb"><strong>Nolte, K.B. et al. (2020).</strong> <em>The Bethesda System for Reporting Cervical Cytology</em>, 3rd Ed. Springer.<br/><span class="rtag" style="background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.22);" data-ar="📄 نظام Bethesda الرسمي" data-en="📄 Official Bethesda System">📄 نظام Bethesda الرسمي</span></div></div>
+    <div class="ri"><span class="rn">[3]</span><div class="rb"><strong>WHO Classification of Tumours (Blue Books), 5th Ed. (2019–) — 6th Ed. series began July 2026.</strong> IARC Press, Lyon.<br/><a href="https://tumourclassification.iarc.who.int" target="_blank">🔗 tumourclassification.iarc.who.int</a><br/><span class="rtag" style="background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.22);" data-ar="🌐 التصنيف العالمي للأورام" data-en="🌐 WHO Global Tumour Classification">🌐 التصنيف العالمي للأورام</span></div></div>
+    <div class="ri"><span class="rn">[4]</span><div class="rb"><strong>Nayar, R. & Wilbur, D.C. (eds) (2015).</strong> <em>The Bethesda System for Reporting Cervical Cytology</em>, 3rd Ed. Springer.<br/><span class="rtag" style="background:rgba(26,158,143,.1);color:var(--teal2);border:1px solid rgba(26,158,143,.22);" data-ar="📄 نظام Bethesda الرسمي" data-en="📄 Official Bethesda System">📄 نظام Bethesda الرسمي</span></div></div>
     <div class="ri"><span class="rn">[5]</span><div class="rb"><strong>College of American Pathologists (CAP).</strong> Histology Proficiency Testing & Accreditation Guidelines.<br/><a href="https://www.cap.org/laboratory-improvement" target="_blank">🔗 cap.org/laboratory-improvement</a></div></div>
     <div class="ri"><span class="rn">[6]</span><div class="rb"><strong>Royal College of Pathologists (RCPath, UK).</strong> Guidelines for Histopathology and Cytopathology Practice.<br/><a href="https://www.rcpath.org/profession/guidelines.html" target="_blank">🔗 rcpath.org/profession/guidelines</a></div></div>
     <div class="ri"><span class="rn">[7]</span><div class="rb"><strong>Kumar, V., Abbas, A.K. & Aster, J.C. (2020).</strong> <em>Robbins & Cotran Pathologic Basis of Disease</em>, 10th Ed. Elsevier.</div></div>
@@ -1025,6 +1056,12 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
     <div class="ri"><span class="rn">[10]</span><div class="rb"><strong>Leong, A.S.Y. & Cooper, K. (2003).</strong> <em>Manual of Diagnostic Antibodies for Immunohistology</em>. Greenwich Medical Media.<br/><span class="rtag" style="background:rgba(124,77,255,.1);color:var(--violet2);border:1px solid rgba(124,77,255,.22);" data-ar="🟣 مرجع أجسام IHC المضادة" data-en="🟣 IHC Antibody Reference">🟣 مرجع أجسام IHC المضادة</span></div></div>
     <div class="ri"><span class="rn">[11]</span><div class="rb"><strong>UK NEQAS.</strong> Immunocytochemistry & ISH Quality Assessment Scheme.<br/><a href="https://www.ukneqas.org.uk" target="_blank">🔗 ukneqas.org.uk</a></div></div>
     <div class="ri"><span class="rn">[12]</span><div class="rb"><strong>ASCP (American Society for Clinical Pathology).</strong> Histotechnology Certification & Practice Standards.<br/><a href="https://www.ascp.org" target="_blank">🔗 ascp.org</a></div></div>
+    <div class="ri"><span class="rn">[13]</span><div class="rb"><strong>ISO 15189:2022.</strong> <em>Medical laboratories — Requirements for quality and competence</em>, 4th Ed. ISO, Geneva. (ILAC transition deadline: December 2025.)<br/><a href="https://www.iso.org/standard/76677.html" target="_blank" rel="noopener">🔗 www.iso.org</a></div></div>
+    <div class="ri"><span class="rn">[14]</span><div class="rb"><strong>Ali, S.Z. & VanderLaan, P.A. (eds) (2023).</strong> <em>The Bethesda System for Reporting Thyroid Cytopathology</em>, 3rd Ed. Springer.<br/><a href="https://link.springer.com/book/10.1007/978-3-031-28046-7" target="_blank" rel="noopener">🔗 link.springer.com</a></div></div>
+    <div class="ri"><span class="rn">[15]</span><div class="rb"><strong>IAC-IARC-WHO Cytopathology Reporting Systems.</strong> Lung (2022), Pancreaticobiliary (2022), Lymph Node, Spleen & Thymus (2024), Soft Tissue (2026). IARC, Lyon.<br/><a href="https://publications.iarc.who.int/Book-And-Report-Series/Iac-Iarc-Who-Cytopathology-Reporting-Systems" target="_blank" rel="noopener">🔗 publications.iarc.who.int</a></div></div>
+    <div class="ri"><span class="rn">[16]</span><div class="rb"><strong>Wolff, A.C. et al. (2023).</strong> Human Epidermal Growth Factor Receptor 2 Testing in Breast Cancer: ASCO–CAP Guideline Update. <em>J Clin Oncol</em> 41:3867–3872.</div></div>
+    <div class="ri"><span class="rn">[17]</span><div class="rb"><strong>ACGIH.</strong> Formaldehyde — TLV-TWA 0.1 ppm, TLV-STEL 0.3 ppm (revised limits, 2016–2017).<br/><a href="https://catas.com/en-GB/news/acgih-sets-new-limits-for-exposure-to-formaldehyde-in-workplaces" target="_blank" rel="noopener">🔗 catas.com</a></div></div>
+    <div class="ri"><span class="rn">[18]</span><div class="rb"><strong>WHO Classification of Tumours, 6th Ed., Vol. 1 (2026).</strong> <em>Digestive System Tumours</em>. IARC, Lyon.<br/><a href="https://www.iarc.who.int/news-events/publication-of-the-who-classification-of-tumours-6th-edition-volume-1-digestive-system-tumours/" target="_blank" rel="noopener">🔗 www.iarc.who.int</a></div></div>
   </div>
 </div>
 
@@ -1035,23 +1072,13 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
       <div class="nbl">
         <div class="nbico">🌐</div>
         <div>
-          <h3 data-ar="أخبار الهيستوباثولوجي والسيتولوجي العالمية" data-en="Global Histopathology & Cytology News">أخبار الهيستوباثولوجي والسيتولوجي العالمية</h3>
-          <p data-ar="Live Feed — تحديث مستمر" data-en="Live Feed — Continuously Updated">Live Feed — تحديث مستمر</p>
+          <h3 data-ar="آخر المستجدات الموثّقة في الهيستوباثولوجي والسيتولوجي" data-en="Verified Histopathology & Cytology Updates">آخر المستجدات الموثّقة في الهيستوباثولوجي والسيتولوجي</h3>
+          <p data-ar="كل خبر مؤرّخ ومرتبط بمصدره الرسمي — آخر مراجعة: أكتوبر 2026" data-en="Every item is dated and linked to its official source — last reviewed October 2026">كل خبر مؤرّخ ومرتبط بمصدره الرسمي — آخر مراجعة: أكتوبر 2026</p>
         </div>
       </div>
-      <div class="nbr">
-        <div class="nlive"><div class="ndot"></div><span data-ar="مباشر" data-en="Live">مباشر</span></div>
-        <button class="nrbtn" id="nBtn" onclick="nRefresh()"><span id="nIcon">↻</span> <span data-ar="تحديث" data-en="Refresh">تحديث</span></button>
-      </div>
-    </div>
-    <div class="ntimer">
-      <span class="ntl" data-ar="التحديث بعد" data-en="Next update in">التحديث بعد</span>
-      <div class="ntr"><div class="ntf" id="nFill" style="width:100%"></div></div>
-      <span class="ntn" id="nNum">60</span>
-      <span class="ntl" data-ar="ث" data-en="s">ث</span>
-      <span class="nupd" id="nUpd"></span>
     </div>
     <div class="ngrid" id="nGrid"></div>
+    <p class="nnote" data-ar="ملاحظة: تُراجع هذه القائمة يدوياً. تأكّد دائماً من الإرشادات المعتمدة في مختبرك والجهات التنظيمية المحلية." data-en="Note: this list is reviewed manually. Always confirm against your laboratory's approved procedures and local regulators.">ملاحظة: تُراجع هذه القائمة يدوياً. تأكّد دائماً من الإرشادات المعتمدة في مختبرك والجهات التنظيمية المحلية.</p>
   </div>
 </div>
 
@@ -1083,11 +1110,14 @@ nav a.nav-special{background:rgba(232,160,32,.06);border-radius:8px;margin:.35re
     </div>
   </div>
   <div class="fbot">
+    <p style="margin-bottom:.35rem" data-ar="آخر مراجعة علمية للمحتوى: أكتوبر 2026" data-en="Content last scientifically reviewed: October 2026">آخر مراجعة علمية للمحتوى: أكتوبر 2026</p>
     <p>© 2026 <span data-ar="مختبر الهيستوباثولوجي والسيتولوجي — أخصائي المختبرات مأمون السعودي | جميع الحقوق محفوظة" data-en="Histopathology & Cytology Lab — Medical Laboratory Specialist Mamoun Al-Saudi | All Rights Reserved">مختبر الهيستوباثولوجي والسيتولوجي — أخصائي المختبرات مأمون السعودي | جميع الحقوق محفوظة</p>
     <p style="margin-top:.35rem">📱 <strong style="color:var(--amber)">+962799146795</strong> | 📡 <a href="https://t.me/alshamelmls" style="color:var(--amber)">t.me/alshamelmls</a></p>
   </div>
 </footer>
 
+<!-- Back to Top Button -->
+<button id="backTop" title="العودة للأعلى" aria-label="Back to top">↑</button>
 <script>
 // ── LANGUAGE SYSTEM ──
 let currentLang = 'ar';
@@ -1161,99 +1191,43 @@ const ioObs = new IntersectionObserver(entries => {
 }, { threshold: 0.25 });
 document.querySelectorAll('[id]').forEach(s => ioObs.observe(s));
 
-// ── NEWS DATA (bilingual) ──
-const ND = {
-  ar: [
-    {t:"الذكاء الاصطناعي يطابق أداء أطباء الباثولوجي في تشخيص سرطان البروستاتا",s:"نظام AI طوّرته جوجل ديب مايند حقق دقة 98% في الكشف عن الغدة السرطانية من شرائح H&E الرقمية.",c:"تقنية",src:"Nature Medicine",r:"الولايات المتحدة"},
-    {t:"تقنية Spatial Transcriptomics تحوّل تحليل الأنسجة الخبيثة",s:"تتيح التقنية ربط بيانات التعبير الجيني بموقعها الدقيق داخل شريحة النسيج، مما يكشف عن غير تجانس الأورام بدقة غير مسبوقة.",c:"اكتشاف",src:"Cell",r:"السويد"},
-    {t:"السيتولوجي السائل مدمج مع الذكاء الاصطناعي لفحص عنق الرحم",s:"شركة Hologic أعلنت عن نظام ThinPrep الذكي بحساسية 96% مع تقليل العينات غير التشخيصية بنسبة 40%.",c:"تقنية",src:"Cytopathology Journal",r:"المملكة المتحدة"},
-    {t:"بروتوكول جديد لتثبيت العينات بدون فورمالين لحماية الفنيين",s:"طور باحثون أوروبيون محلول تثبيت غير ألدهيدي يحافظ على جودة النسيج ومستضدات الـ IHC دون المخاطر المسرطنة.",c:"بحث",src:"Histopathology Journal",r:"ألمانيا"},
-    {t:"نظام تصنيف WHO 2026 للأورام الهضمية",s:"أصدر IARC النسخة المحدثة من التصنيف الأزرق لأورام الجهاز الهضمي متضمنة 47 كياناً مرضياً جديداً.",c:"صحة",src:"WHO IARC",r:"فرنسا"},
-    {t:"IHC المتعدد (Multiplexed IHC) يغيّر تشخيص الأورام",s:"تقنية Opal Multiplex تتيح دراسة 7 علامات IHC في شريحة واحدة برسم خريطة دقيقة للبيئة الميكروية للورم.",c:"تقنية",src:"Journal of Pathology",r:"الولايات المتحدة"},
-    {t:"FNAC عبر الروبوت في الأورام العميقة يحقق دقة 99%",s:"نظام روبوتي موجّه بالموجات فوق الصوتية يُجري FNAC من الغدد العميقة بدقة توجيه 99% مع تقليل المضاعفات.",c:"تقنية",src:"Endoscopy International",r:"اليابان"},
-    {t:"علامة IHC جديدة (TRPS1) تميّز سرطان الثدي ثلاثي السالب",s:"بروتين TRPS1 أثبت كفاءة تشخيصية بحساسية 97% في تمييز سرطان الثدي ثلاثي السالب من السرطانات الغدية الأخرى.",c:"اكتشاف",src:"Am. J. Surgical Pathology",r:"أستراليا"},
-    {t:"الباثولوجي الرقمي يُسرّع التشخيص في مناطق الخليج النائية",s:"مبادرة إماراتية-سعودية لنشر منصات مشاركة الشرائح الرقمية تتيح استشارة خبراء الباثولوجي عن بُعد.",c:"صحة",src:"هيئة الصحة دبي",r:"الإمارات"},
-    {t:"تقنية FISH الجديدة تكشف إعادة الترتيب في الأورام اللمفاوية",s:"بروبات FISH متعددة الألوان طُوِّرت لتشخيص triple-hit lymphoma في جلسة واحدة بدقة 100%.",c:"اكتشاف",src:"Blood Journal",r:"المملكة المتحدة"},
-    {t:"خوارزمية AI تتنبأ بالاستجابة للعلاج الكيميائي من شرائح H&E",s:"نموذج MIT يتنبأ باستجابة سرطان القولون لـ FOLFOX من الشريحة الروتينية دون فحوص جينومية مكلفة.",c:"بحث",src:"Nature Cancer",r:"الولايات المتحدة"},
-    {t:"تثبيت الأنسجة بالميكروويف يختصر وقت المعالجة لساعتين فقط",s:"برنامج تثبيت الميكروويف يُعادل جودة الفورمالين ويُقلل وقت تثبيت الخزعات الصغيرة من 24 ساعة لساعتين.",c:"تقنية",src:"Journal of Histotechnology",r:"فرنسا"},
-    {t:"أطلس الأورام الرقمي للمملكة العربية السعودية رسمياً",s:"وزارة الصحة السعودية أطلقت قاعدة بيانات مصوّرة لأكثر من 50,000 شريحة نسيجية موثقة.",c:"صحة",src:"وزارة الصحة السعودية",r:"المملكة العربية السعودية"},
-    {t:"سيتولوجي السائل الدماغي يكشف الأورام قبل التصوير بستة أشهر",s:"تقنية cfDNA من السائل الدماغي الشوكي تكتشف تكرار الأورام النخامية قبل ظهورها بالرنين المغناطيسي بستة أشهر.",c:"اكتشاف",src:"Neuro-Oncology",r:"ألمانيا"},
-    {t:"الكيمياء المناعية الرقمية تُعيد تعريف درجة ER في سرطان الثدي",s:"قياس ER الكمي بالذكاء الاصطناعي أكثر قابلية للتكرار من التقدير البصري البشري في دراسة متعددة المراكز.",c:"بحث",src:"Breast Cancer Research",r:"هولندا"},
-    {t:"اعتماد ISO 15189 لمختبرات الباثولوجي في الأردن",s:"هيئة الاعتماد الأردنية أعلنت اشتراط حصول مختبرات الهيستوباثولوجي على اعتماد ISO 15189 بحلول 2026.",c:"صحة",src:"المجلس الطبي الأردني",r:"الأردن"},
-  ],
-  en: [
-    {t:"AI Matches Pathologist Performance in Prostate Cancer Diagnosis",s:"A Google DeepMind AI system achieved 98% accuracy in detecting prostate carcinoma on digital H&E slides, paving the way for fully digital pathology.",c:"Technology",src:"Nature Medicine",r:"USA"},
-    {t:"Spatial Transcriptomics Transforms Malignant Tissue Analysis",s:"The technology maps gene expression data to precise locations within tissue sections, revealing tumour heterogeneity with unprecedented resolution.",c:"Discovery",src:"Cell",r:"Sweden"},
-    {t:"Liquid-Based Cytology Integrated with AI for Cervical Screening",s:"Hologic announced an intelligent ThinPrep system achieving 96% sensitivity for HSIL detection while reducing unsatisfactory samples by 40%.",c:"Technology",src:"Cytopathology Journal",r:"UK"},
-    {t:"New Formalin-Free Fixation Protocol Protects Laboratory Staff",s:"European researchers developed a non-aldehyde fixative that preserves tissue morphology and IHC antigens without the carcinogenic hazards of formalin.",c:"Research",src:"Histopathology Journal",r:"Germany"},
-    {t:"WHO 2026 Classification of Gastrointestinal Tumours Released",s:"IARC published an updated Blue Book for GI tumours, incorporating 47 new pathological entities and significant revisions to diagnostic criteria.",c:"Health",src:"WHO IARC",r:"France"},
-    {t:"Multiplexed IHC Transforms Tumour Microenvironment Analysis",s:"Opal Multiplex technology enables simultaneous analysis of 7 IHC markers on a single slide, generating a detailed map of the tumour microenvironment.",c:"Technology",src:"Journal of Pathology",r:"USA"},
-    {t:"Robotic FNAC of Deep-Seated Tumours Achieves 99% Accuracy",s:"An ultrasound-guided robotic system performs FNAC of deep lymph nodes and masses with 99% needle guidance accuracy and minimal complications.",c:"Technology",src:"Endoscopy International",r:"Japan"},
-    {t:"Novel IHC Marker TRPS1 Identifies Triple-Negative Breast Cancer",s:"TRPS1 protein demonstrated 97% sensitivity in distinguishing triple-negative breast carcinoma from other adenocarcinomas in a multi-centre study.",c:"Discovery",src:"Am. J. Surgical Pathology",r:"Australia"},
-    {t:"Digital Pathology Accelerates Diagnosis in Gulf Region Remote Areas",s:"A UAE-Saudi joint initiative deploys digital slide sharing platforms enabling remote expert pathology consultation for regional hospitals.",c:"Health",src:"Dubai Health Authority",r:"UAE"},
-    {t:"Novel FISH Probes Detect Triple-Hit Lymphoma Rearrangements",s:"Multi-colour FISH probes developed for simultaneous MYC/BCL2/BCL6 detection in a single session with 100% diagnostic accuracy.",c:"Discovery",src:"Blood Journal",r:"UK"},
-    {t:"AI Algorithm Predicts Chemotherapy Response from Routine H&E Slides",s:"An MIT model predicts colorectal cancer response to FOLFOX from routine H&E slides, eliminating the need for costly genomic testing.",c:"Research",src:"Nature Cancer",r:"USA"},
-    {t:"Microwave Tissue Fixation Cuts Processing Time to Two Hours",s:"Microwave-assisted fixation matches formalin quality while reducing small biopsy fixation time from 24 hours to just two hours.",c:"Technology",src:"Journal of Histotechnology",r:"France"},
-    {t:"Saudi Arabia Launches Official Digital Tumour Atlas",s:"The Ministry of Health launched a digital database of over 50,000 annotated histological slides covering the most prevalent tumour types in the region.",c:"Health",src:"Saudi MoH",r:"Saudi Arabia"},
-    {t:"CSF Cytology Detects Tumour Recurrence Six Months Before MRI",s:"cfDNA analysis from cerebrospinal fluid detects pituitary adenoma recurrence six months before it becomes visible on MRI scanning.",c:"Discovery",src:"Neuro-Oncology",r:"Germany"},
-    {t:"Digital IHC Redefines ER Scoring in Breast Cancer",s:"AI-based quantitative ER measurement proved more reproducible than visual human assessment in a large multi-centre validation study.",c:"Research",src:"Breast Cancer Research",r:"Netherlands"},
-    {t:"Jordan Mandates ISO 15189 Accreditation for Pathology Laboratories",s:"The Jordanian Accreditation Body announced that histopathology laboratories must obtain ISO 15189 accreditation by 2026.",c:"Health",src:"Jordan Medical Council",r:"Jordan"},
-  ]
-};
-
-const NBC = {
-  ar: {بحث:'nbr', تقنية:'nbt', اكتشاف:'nbd', صحة:'nbh'},
-  en: {Technology:'nbt', Discovery:'nbd', Research:'nbr', Health:'nbh'}
-};
-
-const NRS = 60;
-let nc, ns = NRS;
-
-function nShuffle(a) {
-  const b = [...a];
-  for (let i = b.length-1; i > 0; i--) {
-    const j = Math.floor(Math.random()*(i+1));
-    [b[i],b[j]]=[b[j],b[i]];
-  }
-  return b;
-}
+// ── VERIFIED UPDATES (bilingual, dated, sourced) ──
+const ND = [
+  {d:"2026-07", c:["تصنيف","Classification"], u:"https://www.iarc.who.int/news-events/publication-of-the-who-classification-of-tumours-6th-edition-volume-1-digestive-system-tumours/", src:"IARC / WHO",
+   ar:["صدور الطبعة السادسة من تصنيف WHO — المجلد الأول: أورام الجهاز الهضمي","نُشر في 29 يوليو 2026 كأول مجلد في سلسلة الطبعة السادسة، مع معايير تشخيصية محدّثة وصور جديدة وترميز ICD-O-4."],
+   en:["WHO Classification 6th Edition — Volume 1: Digestive System Tumours","Published 29 July 2026 as the first volume of the 6th-edition series, with updated diagnostic criteria, new images and ICD-O-4 codes."]},
+  {d:"2026", c:["سيتولوجي","Cytology"], u:"https://publications.iarc.who.int/Book-And-Report-Series/Iac-Iarc-Who-Cytopathology-Reporting-Systems", src:"IAC-IARC-WHO",
+   ar:["نظام WHO لتقرير سيتولوجي الأنسجة الرخوة","المجلد الرابع في سلسلة أنظمة التقرير الدولية بعد الرئة والبنكرياس والقنوات الصفراوية (2022) والعقد اللمفية والطحال والتوتة (2024)."],
+   en:["WHO Reporting System for Soft Tissue Cytopathology","Volume 4 of the international reporting-system series, following Lung and Pancreaticobiliary (2022) and Lymph Node, Spleen & Thymus (2024)."]},
+  {d:"2025-12", c:["جودة","Quality"], u:"https://ilac.org/?p=124879", src:"ILAC",
+   ar:["انتهاء الفترة الانتقالية لمعيار ISO 15189:2022","انتهت فترة الانتقال (3 سنوات) في ديسمبر 2025؛ لم يعد الاعتماد وفق ISO 15189:2012 وISO 22870 معترفاً به ضمن اتفاقية ILAC، وأصبحت متطلبات الفحص قرب المريض جزءاً من المعيار الجديد."],
+   en:["ISO 15189:2022 transition period has ended","The 3-year transition ended in December 2025; accreditation to ISO 15189:2012 and ISO 22870 is no longer recognised under the ILAC Arrangement, and POCT requirements are now part of the new standard."]},
+  {d:"2025-01", c:["IHC","IHC"], u:"https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-fam-trastuzumab-deruxtecan-nxki-unresectable-or-metastatic-hr-positive-her2-low-or-her2", src:"U.S. FDA",
+   ar:["فئة HER2-ultralow تدخل الممارسة في سرطان الثدي","في 27 يناير 2025 وافقت FDA على trastuzumab deruxtecan لحالات HER2-low و HER2-ultralow (IHC 0 مع تلوّن غشائي)، مع اعتماد فحص PATHWAY HER2 (4B5) كتشخيص مرافق — ما يجعل التمييز الدقيق لدرجة 0 مهماً."],
+   en:["HER2-ultralow enters breast cancer practice","On 27 Jan 2025 the FDA approved trastuzumab deruxtecan for HER2-low and HER2-ultralow (IHC 0 with membrane staining) disease, with the PATHWAY HER2 (4B5) assay as companion diagnostic — making careful scoring of IHC 0 important."]},
+  {d:"2024-10", c:["IHC","IHC"], u:"https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-zolbetuximab-clzb-chemotherapy-gastric-or-gastroesophageal-junction-adenocarcinoma", src:"U.S. FDA",
+   ar:["CLDN18.2: علامة IHC تنبؤية جديدة لسرطان المعدة","في 18 أكتوبر 2024 وافقت FDA على zolbetuximab لسرطان المعدة/الوصل المريئي HER2-سلبي و CLDN18.2-إيجابي، مع فحص VENTANA CLDN18 (43-14A) كتشخيص مرافق."],
+   en:["CLDN18.2: a new predictive IHC marker in gastric cancer","On 18 Oct 2024 the FDA approved zolbetuximab for HER2-negative, CLDN18.2-positive gastric/GEJ adenocarcinoma, with the VENTANA CLDN18 (43-14A) assay as companion diagnostic."]},
+  {d:"2023", c:["سيتولوجي","Cytology"], u:"https://link.springer.com/book/10.1007/978-3-031-28046-7", src:"Springer / ASC",
+   ar:["الطبعة الثالثة من نظام Bethesda للغدة الدرقية (TBSRTC)","الإبقاء على 6 فئات مع اعتماد الاسم كأساس للتقرير؛ AUS بدل FLUS، و FN بدل SFN، وفئة فرعية FN-oncocytic، وتحديث نسب خطر الخباثة."],
+   en:["Bethesda System for Thyroid Cytopathology, 3rd Edition","Six categories retained with the category name as the primary report term; AUS replaces FLUS, FN replaces SFN, a new FN-oncocytic subcategory, and updated risks of malignancy."]}
+];
 
 function nRender() {
-  const lang = currentLang;
-  const data = ND[lang];
-  const bmap = NBC[lang];
-  const items = nShuffle(data).slice(0, 9);
-  const timeStr = new Date().toLocaleTimeString(lang === 'ar' ? 'ar-EG' : 'en-GB');
-  document.getElementById('nGrid').innerHTML = items.map((n,i) => `
-    <div class="ncard" style="animation-delay:${i*.055}s">
-      <span class="nbadge ${bmap[n.c]||'nbr'}">${n.c}</span>
-      <div class="nct">${n.t}</div>
-      <div class="ncb">${n.s}</div>
-      <div class="ncf"><div class="ncs"><div class="ncd"></div>${n.src}</div><span>${n.r}</span></div>
-    </div>`).join('');
-  document.getElementById('nUpd').textContent = (lang==='ar'?'آخر تحديث: ':'Last update: ') + timeStr;
-}
-
-function nTimer() {
-  clearInterval(nc); ns = NRS;
-  document.getElementById('nNum').textContent = ns;
-  document.getElementById('nFill').style.width = '100%';
-  nc = setInterval(() => {
-    ns--;
-    document.getElementById('nNum').textContent = ns;
-    document.getElementById('nFill').style.width = (ns/NRS*100)+'%';
-    if (ns <= 0) { clearInterval(nc); nRefresh(); }
-  }, 1000);
-}
-
-function nRefresh() {
-  const ic = document.getElementById('nIcon'), bt = document.getElementById('nBtn');
-  ic.className = 'nsp'; bt.disabled = true;
-  setTimeout(() => { nRender(); ic.className=''; bt.disabled=false; nTimer(); }, 600);
+  const lang = currentLang, k = lang === 'ar' ? 0 : 1;
+  document.getElementById('nGrid').innerHTML = ND.map((n,i) => {
+    const t = lang === 'ar' ? n.ar : n.en;
+    return `<div class="ncard" style="animation-delay:${i*.055}s">
+      <span class="nbadge nbt">${n.c[k]}</span>
+      <span class="ndate">${n.d}</span>
+      <div class="nct">${t[0]}</div>
+      <div class="ncb">${t[1]}</div>
+      <div class="ncf"><div class="ncs"><div class="ncd"></div>${n.src}</div><a href="${n.u}" target="_blank" rel="noopener">${lang==='ar'?'المصدر ↗':'Source ↗'}</a></div>
+    </div>`;
+  }).join('');
 }
 
 nRender();
-nTimer();
 
 // ── SCROLL PROGRESS BAR ──
 const spBar = document.getElementById('scrollProgress');
@@ -1281,8 +1255,6 @@ function smoothNav(selector) {
 }
 </script>
 
-<!-- Back to Top Button -->
-<button id="backTop" title="العودة للأعلى" aria-label="Back to top">↑</button>
 </body>
 </html>
 
