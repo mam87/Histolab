@@ -25,7 +25,7 @@
   --font:'IBM Plex Sans Arabic',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:120px}
+html{scroll-padding-top:120px}
 body{background:var(--ink);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 body.en{line-height:1.6}
 a{color:inherit}
@@ -1043,11 +1043,28 @@ const spy = new IntersectionObserver(es => {
     navLinks.forEach(a => {
       const on = a.getAttribute('href') === '#' + e.target.id;
       a.classList.toggle('active', on);
-      if (on) a.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+      if (on) {
+        // keep the active chip visible without scrolling the page itself
+        const bar = a.parentElement, br = bar.getBoundingClientRect(), ar = a.getBoundingClientRect();
+        bar.scrollLeft += (ar.left + ar.width / 2) - (br.left + br.width / 2);
+      }
     });
   });
 }, { rootMargin: '-40% 0px -55% 0px' });
 navLinks.forEach(a => { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
+
+// ── in-page links: scroll explicitly, below the sticky header ──
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const t = document.getElementById(a.getAttribute('href').slice(1));
+  if (!t) return;
+  e.preventDefault();
+  const off = document.querySelector('.top').offsetHeight + 12;
+  scrollTo({ top: t.getBoundingClientRect().top + scrollY - off, behavior: reduce ? 'auto' : 'smooth' });
+  history.replaceState(null, '', '#' + t.id);
+});
 
 // ── bench tabs ──
 const tabs = [...document.querySelectorAll('.btab')];
